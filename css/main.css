@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+}
+
+.nav-container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.nav-section-one {
+    display: flex;
+    justify-content: space-around;
+    flex: 2;
+}
+
+.nav-section-two {
+    display: flex;
+    flex: 3;
+    justify-content: end;
+    margin: 0 1em;
+}
+
+nav {
+    background-color: #dedede;
+    height: 5vh;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+nav li {
+    list-style: none;
+}
