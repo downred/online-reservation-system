@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    font-family: Roboto;
 }
 
 .nav-container {
@@ -33,4 +34,22 @@ nav a {
 
 nav li {
     list-style: none;
+}
+
+/*buttons*/
+
+.btn-primary {
+    padding: .5rem;
+    background-color: #f15156;
+    width: min-content;
+    height: min-content;
+    border-radius: 10px;
+    white-space: nowrap;
+    color: white !important;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
