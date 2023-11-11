@@ -1,3 +1,14 @@
+:root {
+    --color-primary: #f15156;
+    --color-primary-darker: #ad393c;
+    --color-accent: #721121;
+    --color-secondary: #a5402d;
+    --color-secondary-lighter: #f58468;
+    --color-light: #ffc07f;
+    --color-light-lighter: #ffdbc0;
+    --color-lighter: #ffcf99;
+}
+
 * {
     margin: 0;
     font-family: Roboto;
@@ -24,7 +35,7 @@
 
 nav {
     background-color: #dedede;
-    height: 5vh;
+    height: 6vh;
 }
 
 nav a {
@@ -40,13 +51,47 @@ nav li {
 
 .btn-primary {
     padding: .5rem;
-    background-color: #f15156;
+    background-color: var(--color-primary);
     width: min-content;
     height: min-content;
     border-radius: 10px;
     white-space: nowrap;
     color: white !important;
     text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-darker);
+}
+
+.btn-light {
+    padding: .5rem;
+    background-color: var(--color-light);
+    width: min-content;
+    height: min-content;
+    border-radius: 10px;
+    white-space: nowrap;
+    color: black !important;
+    text-decoration: none;
+}
+
+.btn-light:hover {
+    background-color: var(--color-light-lighter);
+}
+
+.btn-secondary {
+    padding: .5rem;
+    background-color: var(--color-secondary);
+    width: min-content;
+    height: min-content;
+    border-radius: 10px;
+    white-space: nowrap;
+    color: black !important;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-secondary-lighter);
 }
 
 a {
