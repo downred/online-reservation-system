@@ -34,13 +34,17 @@
 }
 
 nav {
-    background-color: #dedede;
     height: 6vh;
 }
 
 nav a {
     text-decoration: none;
     color: black;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: var(--color-primary);
 }
 
 nav li {
