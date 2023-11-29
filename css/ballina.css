@@ -155,7 +155,28 @@ main section {
 footer {
     padding: 1em;
     height: 25vh;
-    background-color: var(--color-lighter);
+    background-color: var(--color-secondary);
+}
+
+.contacts-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 100%;
+    color: #fff;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 
 
