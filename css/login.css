@@ -1,0 +1,9 @@
+.login-container {
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    width: 400px;
+    border-radius: 20px;
+    background-color: var(--color-light-lighter);
+    margin: 0 auto;
+}
