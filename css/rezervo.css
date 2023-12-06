@@ -5,13 +5,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
 .card-animation{
     width: 100%;
     /* outline: #721121 dashed 1px; */
     padding: 15px;
-    
+
     animation: linear reveal both;
     animation-timeline: view();
     animation-range: entry 0.5% cover 15%;
@@ -25,9 +25,9 @@
 
     display: flex;
     align-items: center;
-    
+
 }
-img{
+.hotel-img img{
     width: 270px;
     height: 180px;
     border-radius: 10px;
@@ -39,12 +39,12 @@ img{
 .main-info{
     height: 100%;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: space-between;}
 
 .rating-addres{
     /* outline: #721121 dashed 1px; */
-    
+
 
 }
 
