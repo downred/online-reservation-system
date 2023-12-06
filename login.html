@@ -13,22 +13,27 @@
     <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
-<section>
+<div class="wrapper">
+    <section class="login-image-container">
+        <img src="./images/hotel3.jpg" alt="">
+    </section>
+    <section class="login-section">
+        <form action="">
+            <div class="login-container">
+                <div class="login-logo">
+                    <img src="./images/logo/logo.png" alt="">
+                </div>
+                <h1>Kyçuni në llogarinë tuaj</h1>
+                <span>Nuk keni llogari? Krijoni një <a href="#">këtu</a></span>
+                <input placeholder="Email" type="email" id="email" name="email" class="login-input" required>
 
-</section>
-<section>
-    <form action="">
-        <div class="login-container">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+                <input placeholder="Fjalëkalimi" type="password" id="password" class="login-input" name="password" required>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-
-            <button class="btn-primary" type="submit" onclick="login()">Login</button>
-        </div>
-    </form>
-</section>
+                <button class="btn-light" type="submit" onclick="login()">Kyçu</button>
+            </div>
+        </form>
+    </section>
+</div>
 <script src="./js/login.js"></script>
 </body>
 </html>

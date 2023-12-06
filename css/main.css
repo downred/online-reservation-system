@@ -63,6 +63,8 @@ nav li {
     white-space: nowrap;
     color: white !important;
     text-decoration: none;
+    border: 0;
+    cursor: pointer;
 }
 
 .btn-primary:hover {
@@ -78,6 +80,8 @@ nav li {
     white-space: nowrap;
     color: black !important;
     text-decoration: none;
+    border: 0;
+    cursor: pointer;
 }
 
 .btn-light:hover {
@@ -93,13 +97,10 @@ nav li {
     white-space: nowrap;
     color: black !important;
     text-decoration: none;
+    border: 0;
+    cursor: pointer;
 }
 
 .btn-secondary:hover {
     background-color: var(--color-secondary-lighter);
-}
-
-a {
-    text-decoration: none;
-    color: white;
 }

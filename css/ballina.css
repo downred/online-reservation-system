@@ -153,17 +153,22 @@ main section {
 
 /*footer*/
 footer {
-    padding: 1em;
     height: 25vh;
     background-color: var(--color-secondary);
+}
+
+.additional-info {
+    padding-top: 2rem;
+    line-height: 2rem;
 }
 
 .contacts-wrapper {
     display: flex;
     flex-direction: row;
-    width: 50%;
+    gap: 10rem;
     height: 100%;
     color: #fff;
+    justify-content: center;
 }
 
 .logo-wrapper {
