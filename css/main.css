@@ -71,7 +71,7 @@ nav li {
     background-color: var(--color-primary-darker);
 }
 
-.btn-light {
+.btn-light, .rezervo-btn{
     padding: .5rem;
     background-color: var(--color-light);
     width: min-content;
