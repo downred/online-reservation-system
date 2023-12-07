@@ -5,52 +5,87 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    
 }
 .card-animation{
     width: 100%;
     /* outline: #721121 dashed 1px; */
-    padding: 15px;
-
+    padding: 10px;
+    
     animation: linear reveal both;
     animation-timeline: view();
     animation-range: entry 0.5% cover 15%;
 }
 .hotel-card{
-    pagg: 5px;
     height: 180px;
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: 10px;
     outline: #464646 solid 1px;
 
     display: flex;
     align-items: center;
-
+    
 }
-.hotel-img img{
+img{
     width: 270px;
     height: 180px;
     border-radius: 10px;
 }
 .hotel-img{
-    margin-right: 1%;
+    width: 270px;
+    height: 180px;
+    padding-right: 1%;
 }
 
 .main-info{
+    padding-top: 7px;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-grow: 1;
+    flex-direction: column; 
     justify-content: space-between;}
 
 .rating-addres{
     /* outline: #721121 dashed 1px; */
+    
 
+}
 
+.card-footer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* outline: #721121 dashed 1px; */
+    margin-bottom: 7px;
+    justify-content: space-between;
+}
+
+.reserve{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 7px;
+    
 }
 
 .desc{
     /* outline: #721121 dashed 1px; */
+    width: 600px;
 
+}
+
+.rezervo-btn{
+    padding: .5rem;
+    background-color: var(--color-light);
+    width: min-content;
+    height: min-content;
+    border-radius: 10px;
+    white-space: nowrap;
+    color: black !important;
+    text-decoration: none;
+}
+.rezervo-btn:hover{
+    cursor: pointer;
 }
 
 @keyframes reveal{
