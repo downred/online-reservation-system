@@ -1,3 +1,5 @@
+
+
 .wrapper {
     width: 100%;
     height: 100%;
@@ -41,6 +43,12 @@
     color: var(--color-accent);
 }
 
+.login-container .err-msg {
+    color: red;
+    font-size: .8rem;
+    text-align: left;
+}
+
 .login-input {
     height: 3rem;
     margin: 1rem 0;
@@ -58,4 +66,8 @@
 
 .btn-light {
     width: 100%;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0 !important;
 }

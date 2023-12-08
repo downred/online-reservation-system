@@ -26,10 +26,9 @@
                 <h1>Kyçuni në llogarinë tuaj</h1>
                 <span>Nuk keni llogari? Krijoni një <a href="#">këtu</a></span>
                 <input placeholder="Email" type="email" id="email" name="email" class="login-input" required>
-
                 <input placeholder="Fjalëkalimi" type="password" id="password" class="login-input" name="password" required>
-
-                <button class="btn-light" type="submit" onclick="login()">Kyçu</button>
+                <span class="err-msg"></span>
+                <button class="btn-light" type="submit" onclick="login(event)">Kyçu</button>
             </div>
         </form>
     </section>
