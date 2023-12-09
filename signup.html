@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Online Reservation System - Log in</title>
+    <title>Online Reservation System - Sign Up</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,20 +19,22 @@
     </section>
     <section class="login-section">
         <form action="">
-            <div class="login-container">
+            <div class="login-container" style="padding: 1rem">
                 <div class="login-logo">
                     <img src="./images/logo/logo.png" alt="">
                 </div>
-                <h1>Kyçuni në llogarinë tuaj</h1>
-                <span>Nuk keni llogari? Krijoni një <a href="./signup.html">këtu</a></span>
+                <h1>Hap një llogari të re</h1>
+                <input placeholder="Emri" type="text" id="name" name="name" class="login-input" required>
+                <input placeholder="Mbiemri" type="text" id="lastname" name="lastname" class="login-input" required>
                 <input placeholder="Email" type="email" id="email" name="email" class="login-input" required>
                 <input placeholder="Fjalëkalimi" type="password" id="password" class="login-input" name="password" required>
+                <input placeholder="Konfirmo fjalëkalimin" type="password" id="password_confirm" class="login-input" name="password" required>
                 <span class="err-msg"></span>
-                <button class="btn-light" type="submit" onclick="login(event)">Kyçu</button>
+                <button class="btn-light" type="submit" onclick="signup(event)">Kyçu</button>
             </div>
         </form>
     </section>
 </div>
-<script src="./js/login.js"></script>
+<script src="./js/signup.js"></script>
 </body>
 </html>
