@@ -1,0 +1,129 @@
+.landing-img {
+    height: 75vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.landing-img img {
+    object-position: center -390px;
+    object-fit: cover;
+    min-height: 100%;
+    width: 100%;
+}
+
+.hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffcf99;
+    width: 100%;
+}
+
+.hero-content > h1 {
+    font-size: 4em;
+    text-shadow: -1px 4px 7px rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (max-width: 1620px) {
+    .landing-img img {
+        object-position: center -130px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .hero-content > h1 {
+        font-size: 3em;
+    }
+
+    .hero-content > .btn-primary {
+        font-size: 1.5em !important;
+    }
+}
+
+@media screen and (max-width: 945px) {
+    .hero-content > h1 {
+        font-size: 2.5em;
+    }
+
+    .landing-img img {
+        object-position: center 0px;
+    }
+
+    .hero-content > .btn-primary {
+        font-size: 2em;
+    }
+
+}
+
+/* cards */
+
+.card-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-row{
+    display: flex;
+    padding: 10px 80px;
+    justify-content: space-evenly;
+    column-gap: 20px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+    
+}
+.info-card{
+    border-radius: 7px;
+    border: gray solid 1px;
+    flex: 1;
+    padding: 10px;
+    align-self: stretch;
+    box-sizing: border-box;
+}
+@media screen and (max-width: 700px) {
+    .card-row{
+        flex-direction: column;
+    }
+    .info-card{
+        /* margin-bottom: 10px; */
+    }
+}
+
+/* footer */
+footer {
+    height: 25vh;
+    background-color: var(--color-secondary);
+}
+
+.additional-info {
+    padding-top: 2rem;
+    line-height: 2rem;
+}
+
+.contacts-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+    height: 100%;
+    color: #fff;
+    justify-content: center;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
