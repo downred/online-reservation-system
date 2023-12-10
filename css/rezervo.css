@@ -142,6 +142,9 @@
     visibility: visible !important;
     color: rgb(250, 39, 39);
 }
+.success-msg{
+    visibility: visible !important;
+}
 
 @keyframes reveal{
     from{

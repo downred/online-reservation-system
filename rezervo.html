@@ -45,7 +45,7 @@
                         <p>Nga: <input type="date" id="StartDate"></p>
                         <p>Deri: <input type="date" id="EndDate"></p>
                     </div>
-                    <p style="visibility: hidden;" id="error-msg">Data e fillimit te rezervimit duhet te jete me e vogel se ajo e mbarimit</p>
+                    <p style="visibility: hidden;" id="error-msg"></p>
                     <div class="button-holder">
                         <button class="cancel" onclick="CloseForm()">Anulo</button>
                         <button class="rezervo-btn" onclick="SubmitFrom()">Rezervo</button>
@@ -235,13 +235,20 @@
             function SubmitFrom(){
                 let startDate = document.getElementById("StartDate").value
                 let endDate = document.getElementById("EndDate").value
-                let error = document.getElementById("error-msg")
+                let msg = document.getElementById("error-msg")
 
                 if(startDate>endDate){
-                    error.classList.add("date-error")
+                    msg.textContent = "Data e fillimit te rezervimit duhet te jete me e vogel se ajo e mbarimit!"
+                    msg.classList.add("date-error")
                     console.log("date error")
                 }else{
-                    error.classList.remove("date-error")
+                    msg.textContent = "Rezervimi u krye me sukses!"
+                    msg.classList.remove("date-error")
+                    msg.classList.add("success-msg")
+                    wait(5000);
+                    popup.classList.remove("popup-show");
+                    msg.classList.remove("success-msg")
+                    
                 }
 
                 event.preventDefault();
