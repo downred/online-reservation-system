@@ -224,39 +224,6 @@
                 </div>
             </div>
         </div>
-        <Script>
-            let popup = document.getElementById("popup")
-            function DisplayForm(){
-                popup.classList.add("popup-show");
-            }
-            function CloseForm(){
-                popup.classList.remove("popup-show");
-            }
-            function SubmitFrom(){
-                let startDate = document.getElementById("StartDate").value
-                let endDate = document.getElementById("EndDate").value
-                let msg = document.getElementById("error-msg")
-
-                if(startDate>endDate){
-                    msg.textContent = "Data e fillimit te rezervimit duhet te jete me e vogel se ajo e mbarimit!"
-                    msg.classList.add("date-error")
-                    console.log("date error")
-                }else{
-                    msg.textContent = "Rezervimi u krye me sukses!"
-                    msg.classList.remove("date-error")
-                    msg.classList.add("success-msg")
-                    wait(5000);
-                    popup.classList.remove("popup-show");
-                    msg.classList.remove("success-msg")
-                    
-                }
-
-                event.preventDefault();
-                console.log(startDate)
-                console.log(endDate)
-                
-            }
-
-        </Script>
+        <script src="./js/rezervo.js"></script>
     </body>
-    </html>
+</html>
