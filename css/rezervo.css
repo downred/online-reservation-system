@@ -10,6 +10,7 @@
     width: 100%;
     padding: 10px;
     animation: linear reveal both;
+    animation-timeline: view();
     animation-range: entry 0.5% cover 15%;
 }
 
@@ -18,10 +19,8 @@
     overflow: hidden;
     border-radius: 10px;
     outline: #464646 solid 1px;
-
     display: flex;
     align-items: center;
-    
 }
 .hotel-card img{
     width: 270px;
