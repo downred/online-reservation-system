@@ -16,6 +16,7 @@
     animation-timeline: view();
     animation-range: entry 0.5% cover 15%;
 }
+
 .hotel-card{
     height: 180px;
     overflow: hidden;
@@ -81,6 +82,65 @@
 .rezervo-btn:hover{
     cursor: pointer;
     background-color: #ffdbc0;
+}
+
+/* POP UP FORM */
+
+.form-popup{
+    visibility: hidden;
+    opacity: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    background-color: white;
+    transform: translate(-50%,-50%);
+    outline: gray 1px solid;
+    padding: 10px;
+    border-radius: 7px;
+}
+.popup-show{
+    visibility: visible;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-popup h1{
+    margin-bottom: 3px;
+}
+.date-holder{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 7px;
+}
+.button-holder{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.button-holder>button{
+    padding: .5rem;
+    background-color: var(--color-light);
+    width: min-content;
+    height: min-content;
+    border-radius: 10px;
+    white-space: nowrap;
+    color: black !important;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+}
+.cancel{
+    background-color: #ff7070 !important;
+}
+.date-error{
+    visibility: visible !important;
+    color: rgb(250, 39, 39);
 }
 
 @keyframes reveal{

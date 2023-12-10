@@ -36,6 +36,24 @@
         </nav>
     </header>
     <body>
+        <!-- POP-UP FORM -->
+        <div class="form-popup" id="popup">
+            <h1>Enter the dates of your reservation</h1>
+            <form action="">
+                <div class="form-container">
+                    <div class="date-holder">
+                        <p>Nga: <input type="date" id="StartDate"></p>
+                        <p>Deri: <input type="date" id="EndDate"></p>
+                    </div>
+                    <p style="visibility: hidden;" id="error-msg">Data e fillimit te rezervimit duhet te jete me e vogel se ajo e mbarimit</p>
+                    <div class="button-holder">
+                        <button class="cancel" onclick="CloseForm()">Anulo</button>
+                        <button class="rezervo-btn" onclick="SubmitFrom()">Rezervo</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
         <div class="hotel-card-container">
             <div class="card-animation">
                 <div class="hotel-card">
@@ -55,7 +73,7 @@
                             </div>
                             <div class="reserve">
                                 <h4>115$/Night</h4>
-                                <button class="rezervo-btn">Rezervo</button>
+                                <button class="rezervo-btn" onclick="DisplayForm()">Rezervo</button>
                             </div>
                         </div>    
                     </div>
@@ -79,7 +97,7 @@
                             </div>
                             <div class="reserve">
                                 <h4>80$/Night</h4>
-                                <button class="rezervo-btn">Rezervo</button>
+                                <button class="rezervo-btn" onclick="DisplayForm()">Rezervo</button>
                             </div>
                         </div>    
                     </div>
@@ -103,7 +121,7 @@
                             </div>
                             <div class="reserve">
                                 <h4>100$/Night</h4>
-                                <button class="rezervo-btn">Rezervo</button>
+                                <button class="rezervo-btn" onclick="DisplayForm()">Rezervo</button>
                             </div>
                         </div>    
                     </div>
@@ -127,7 +145,7 @@
                             </div>
                             <div class="reserve">
                                 <h4>90$/Night</h4>
-                                <button class="rezervo-btn">Rezervo</button>
+                                <button class="rezervo-btn" onclick="DisplayForm()">Rezervo</button>
                             </div>
                         </div>    
                     </div>
@@ -151,7 +169,7 @@
                             </div>
                             <div class="reserve">
                                 <h4>120$/Night</h4>
-                                <button class="rezervo-btn">Rezervo</button>
+                                <button class="rezervo-btn" onclick="DisplayForm()">Rezervo</button>
                             </div>
                         </div>    
                     </div>
@@ -175,7 +193,7 @@
                             </div>
                             <div class="reserve">
                                 <h4>130$/Night</h4>
-                                <button class="rezervo-btn">Rezervo</button>
+                                <button class="rezervo-btn" onclick="DisplayForm()">Rezervo</button>
                             </div>
                         </div>    
                     </div>
@@ -199,12 +217,39 @@
                             </div>
                             <div class="reserve">
                                 <h4>55$/Night</h4>
-                                <button class="rezervo-btn">Rezervo</button>
+                                <button class="rezervo-btn" onclick="DisplayForm()">Rezervo</button>
                             </div>
                         </div>    
                     </div>
                 </div>
             </div>
         </div>
+        <Script>
+            let popup = document.getElementById("popup")
+            function DisplayForm(){
+                popup.classList.add("popup-show");
+            }
+            function CloseForm(){
+                popup.classList.remove("popup-show");
+            }
+            function SubmitFrom(){
+                let startDate = document.getElementById("StartDate").value
+                let endDate = document.getElementById("EndDate").value
+                let error = document.getElementById("error-msg")
+
+                if(startDate>endDate){
+                    error.classList.add("date-error")
+                    console.log("date error")
+                }else{
+                    error.classList.remove("date-error")
+                }
+
+                event.preventDefault();
+                console.log(startDate)
+                console.log(endDate)
+                
+            }
+
+        </Script>
     </body>
     </html>
