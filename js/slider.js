@@ -1,7 +1,7 @@
 let slideAmount = 0;
-
-let imageUrls =
-    ['./images/hotel1.jpg',
+let isTransitioning = false;
+const imageUrls = [
+    './images/hotel1.jpg',
     './images/hotel3.jpg',
     './images/hotel4.jpg',
     './images/hotel5.jpg',
@@ -12,43 +12,35 @@ let imageUrls =
     './images/hotel11.jpg',
     './images/hotel12.jpg',
     './images/hotel13.jpg'
-    ]
+];
 
-let sliderImages = document.getElementsByClassName('slider-images')[0];
+const sliderImages = document.getElementsByClassName('slider-images')[0];
+const sliderImagesContainer = document.getElementsByClassName('slider-images-wrapper')[0];
 
-console.log("yes aiyah")
 imageUrls.forEach((url, index) => {
     const imageElement = document.createElement('div');
     imageElement.classList.add('slider-img');
     imageElement.innerHTML = `<img src="${url}" alt="Image ${index + 1}">`;
-
     sliderImages.appendChild(imageElement);
-})
+});
+
+const scrollDistance = 500;
 
 function slideRight() {
-    let sliderImages = document.getElementsByClassName('slider-images')
-    const remainingSpace = sliderImages.scrollWidth - (sliderImages.clientWidth + slideAmount);
+    const newScrollPosition = sliderImagesContainer.scrollLeft + scrollDistance;
 
-    console.log("test")
-
-    console.log({remainingSpace})
-
-    if (remainingSpace >= 350) {
-        slideAmount = slideAmount - 350;
-    } else {
-        slideAmount = sliderImages.scrollWidth - sliderImages.clientWidth;
-
-    }
-
-    sliderImages[0].style.transform = `translateX(${slideAmount}px)`
+    sliderImagesContainer.scrollTo({
+        left: newScrollPosition,
+        behavior: 'smooth'
+    });
 }
 
 function slideLeft() {
-    let sliderImages = document.getElementsByClassName('slider-images')
+    const newScrollPosition = sliderImagesContainer.scrollLeft - scrollDistance;
 
-    console.log("test")
-
-    slideAmount = slideAmount + 350;
-
-    sliderImages[0].style.transform = `translateX(${slideAmount}px)`
+    sliderImagesContainer.scrollTo({
+        left: newScrollPosition,
+        behavior: 'smooth'
+    });
 }
+
