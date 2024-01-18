@@ -37,7 +37,7 @@
 nav {
     height: 13vh;
 }
- 
+
 nav a {
     text-decoration: none;
     color: black;
@@ -71,7 +71,8 @@ nav li {
     background-color: var(--color-primary-darker);
 }
 
-.btn-light, .rezervo-btn{
+.btn-light,
+.rezervo-btn {
     padding: .5rem;
     background-color: var(--color-light);
     width: min-content;
@@ -103,4 +104,10 @@ nav li {
 
 .btn-secondary:hover {
     background-color: var(--color-secondary-lighter);
+}
+
+/* admin sidebar container */
+.navbar-container {
+    height: 100%;
+    position: fixed;
 }
