@@ -42,8 +42,8 @@ function signup(e) {
     }
 
     resetErrorMsg();
-    
-    window.location.href = "../success.html";
+    return true;
+    // window.location.href = "../success.html";
 }
 
 function showErrorMsg(errorType, msg) {
