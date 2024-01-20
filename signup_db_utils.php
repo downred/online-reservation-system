@@ -15,6 +15,11 @@ class SignupDBUtils extends dbConnect
             exit();
         }
 
+        session_start();
+        $_SESSION['signup_success'] = true;
+
+        header("location: login.php");
+
         $stmt = null;
     }
     public function checkUser($email)

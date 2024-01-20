@@ -1,6 +1,8 @@
 <!doctype html>
 <?php
 
+session_start();
+
 if (isset($_POST["submit"])) {
     $emri = $_POST["name"];
     $mbiemri = $_POST["lastname"];
@@ -12,11 +14,15 @@ if (isset($_POST["submit"])) {
     include "signup_db_utils.php";
     include "signup_contr.php";
 
-    $signup = new SignupContr($emri,$mbiemri,$email,$password,$password_confirm);
+    $signup = new SignupContr($emri, $mbiemri, $email, $password, $password_confirm);
 
     $signup->initSignup();
 
-    header("location singup.php?error=none");
+    var_dump($_SESSION["form_data"]);
+
+    unset($_SESSION["form_data"]);
+    session_destroy();
+    // header("location: signup.php?error=none");
 }
 
 
@@ -48,14 +54,35 @@ if (isset($_POST["submit"])) {
                         <img src="./images/logo/logo.png" alt="">
                     </div>
                     <h1>Hap një llogari të re</h1>
-                    <input placeholder="Emri" type="text" id="name" name="name" class="login-input" required>
-                    <input placeholder="Mbiemri" type="text" id="lastname" name="lastname" class="login-input" required>
-                    <input placeholder="Email" type="email" id="email" name="email" class="login-input" required>
-                    <input placeholder="Fjalëkalimi" type="password" id="password" class="login-input" name="password"
-                        required>
+                    <input placeholder="Emri" type="text" id="name" name="name"
+                        value="<?php echo isset($_SESSION['form_data']['name']) ? htmlspecialchars($_SESSION['form_data']['name']) : ''; ?>"
+                        class="login-input">
+
+                    <input placeholder="Mbiemri" type="text" id="lastname" name="lastname"
+                        value="<?php echo isset($_SESSION['form_data']['lastname']) ? htmlspecialchars($_SESSION['form_data']['lastname']) : ''; ?>"
+                        class="login-input">
+
+                    <input placeholder="Email" type="email" id="email" name="email"
+                        value="<?php echo isset($_SESSION['form_data']['email']) ? htmlspecialchars($_SESSION['form_data']['email']) : ''; ?>"
+                        class="login-input">
+
+                    <input placeholder="Fjalëkalimi" type="password" id="password"
+                        value="<?php echo isset($_SESSION['form_data']['password']) ? htmlspecialchars($_SESSION['form_data']['password']) : ''; ?>"
+                        class="login-input" name="password">
+
                     <input placeholder="Konfirmo fjalëkalimin" type="password" id="password_confirm"
-                        name="password_confirm" class="login-input" name="password" required>
-                    <span class="err-msg"></span>
+                        name="password_confirm"
+                        value="<?php echo isset($_SESSION['form_data']['password_confirm']) ? htmlspecialchars($_SESSION['form_data']['password_confirm']) : ''; ?>"
+                        class="login-input">
+
+                    <span class="err-msg">
+                        <?php
+                        if (isset($_SESSION["error_msg"])) {
+                            echo $_SESSION["error_msg"];
+                        }
+                        session_destroy();
+                        ?>
+                    </span>
                     <button class="btn-light" type="submit" name="submit">Kyçu</button>
                 </div>
             </form>
