@@ -24,6 +24,6 @@ class LoginContr extends LoginDBUtils
     }
 
     public function fieldIsEmpty() {
-        return empty($this->emri) || empty($this->email) || empty($this->password) || empty( $this->password_confirm);
+        return empty($this->email) || empty($this->password);
     }
 }

@@ -62,7 +62,7 @@ if (isset($_POST["submit"])) {
                     <input placeholder="Email" type="email" id="email" name="email" class="login-input">
                     <input placeholder="Fjalëkalimi" type="password" id="password" class="login-input" name="password">
                     <span class="err-msg"></span>
-                    <button class="btn-light" type="submit">Kyçu</button>
+                    <button class="btn-light" name="submit" type="submit">Kyçu</button>
                 </div>
             </form>
         </section>

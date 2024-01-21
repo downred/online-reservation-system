@@ -8,7 +8,7 @@ class LoginDBUtils extends dbConnect
         $query = "SELECT password FROM perdoruesi WHERE email = ?";
         $stmt = $this->connectDB()->prepare($query);
 
-        if (!$stmt->execute(array($email, $password))) {
+        if (!$stmt->execute(array($email))) {
             $stmt = null;
             header("location: login.php?error=stmtfailed");
             exit();
@@ -21,22 +21,25 @@ class LoginDBUtils extends dbConnect
         }
 
         $fetchedData = $stmt->fetchAll();
-
-        $checkPwd = password_verify($password, $fetchedData[0]["password"]);
+        $hashedPwd = $fetchedData[0]["password"];
+        $checkPwd = password_verify($password, $hashedPwd);
 
         if (!$checkPwd) {
             $stmt = null;   
             header("location: login.php?error=wrongpassword");
             exit();
         } else if ($checkPwd) {
-            $userQuery = "SELECT * FROM perdoruesit WHERE email = ? AND password = ?";
+            $userQuery = "SELECT * FROM perdoruesi WHERE email = ? AND password = ?";
             $stmt = $this->connectDB()->prepare($userQuery);
 
-            if (!$stmt->execute(array($email, $password))) {
+            if (!$stmt->execute(array($email, $hashedPwd))) {
                 $stmt = null;
                 header("location: login.php?error=stmtfailed");
                 exit();
             }
+
+
+            $user = $stmt->fetchAll();
 
             if ($stmt->rowCount() == 0) {
                 $stmt = null;
@@ -44,7 +47,6 @@ class LoginDBUtils extends dbConnect
                 exit();
             }
 
-            $user = $stmt->fetchAll();
 
             session_start();
             $_SESSION["userid"] = $user[0]["perdoruesi_id"];
