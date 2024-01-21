@@ -93,6 +93,9 @@
     .info-card{
         /* margin-bottom: 10px; */
     }
+    .card-row{
+        padding: 10px 5px;
+    }
 }
 
 /* footer */

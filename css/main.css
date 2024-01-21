@@ -111,3 +111,7 @@ nav li {
     height: 100%;
     position: fixed;
 }
+
+.hotel-img {
+    height: 180px;
+}

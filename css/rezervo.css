@@ -1,68 +1,91 @@
 /* Holet cards*/
 .hotel-card-container{
-    padding: 0px 250px;
+    padding: 0px 15%;
     display: flex;
     flex-direction: column;
     align-items: center;
     
 }
 .card-animation{
-    width: 100%;
+    /* width: 100%; */
     padding: 10px;
     animation: linear reveal both;
     animation-timeline: view();
     animation-range: entry 0.5% cover 15%;
 }
 
+/* .card-head{
+    padding-top: 3px;
+    display: flex;
+    justify-content: space-between;
+} */
+
 .hotel-card{
-    height: 180px;
-    overflow: hidden;
+    min-height: 170px;
+    /* overflow: hidden; */
     border-radius: 10px;
     outline: #464646 solid 1px;
     display: flex;
-    align-items: center;
-}
-.hotel-card img{
-    width: 270px;
-    height: 180px;
-    border-radius: 10px;
+    /* align-items: center; */
+    padding-right: 1%;
 }
 .hotel-img{
-    width: 270px;
-    height: 180px;
-    padding-right: 1%;
+    border-radius: 10px;
+    width: 100%; /* Make the image take up 100% of the container's width */
+    height: 100%; /* Allow the image to scale proportionally based on width */
+    display: block; /* Remove any extra spacing below the image */
+    overflow: hidden; /* Hide any overflow beyond the container */
+}
+.img{
+    width: 100%;
+    height: 100%;
+    max-width: 100%; 
+    max-height: 100%;
+    overflow: hidden; 
+    /* padding-right: 1%; */
+}
+.hotel-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
 }
 
 .main-info{
-    padding-top: 7px;
-    height: 100%;
+    /* padding-top: 7px; */
+    /* height: 100%; */
+    padding-left: 1%;
     display: flex;
-    flex-grow: 1;
-    flex-direction: column; 
+    align-items: flex-end;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.card-footer{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 7px;
-    justify-content: space-between;
+.rating-addres{
+    flex: 0 auto;
 }
+
 
 .reserve{
     display: flex;
+    flex: 0 auto;
     flex-direction: column;
     align-items: flex-end;
     padding-right: 7px;
     padding-bottom: 3px;
     align-self: flex-end;
-    padding-left: 100px;
     justify-content: space-between;
 }
 
 .desc{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 7px;
+    justify-content: space-between;
     flex-grow: 1;
+    padding-right: 7px;
+    align-self: flex-end;
 
 }
 
@@ -176,4 +199,36 @@ footer {
     width: 100%;
     display: flex;
     justify-content: flex-start;
+}
+
+@media screen and (max-width: 1200px) {
+
+.hotel-card{
+    flex-direction: column;
+    /* row-gap: 300%; */
+}
+
+/* .hotel-img img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+} */
+
+.hotel-card{
+    padding-right: 0;
+}
+.hotel-card-container{
+    padding: 0px 5%;
+}
+
+.reserve{
+    order: 3;
+    flex-flow: row-reverse;
+    /* align-content: center; */
+}
+.reserve > h4{
+    align-self: center;
+    padding-left: 7px;
+}
+
 }
