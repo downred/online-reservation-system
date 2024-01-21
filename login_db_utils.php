@@ -17,6 +17,7 @@ class LoginDBUtils extends dbConnect
         if ($stmt->rowCount() == 0) {
             $stmt = null;
             header("location: login.php?error=usernotfound");
+            $_SESSION["error_msg"] = "Kjo llogari nuk ekziston";
             exit();
         }
 
@@ -24,9 +25,12 @@ class LoginDBUtils extends dbConnect
         $hashedPwd = $fetchedData[0]["password"];
         $checkPwd = password_verify($password, $hashedPwd);
 
+        session_start();
+
         if (!$checkPwd) {
             $stmt = null;   
             header("location: login.php?error=wrongpassword");
+            $_SESSION["error_msg"] = "Fjalekalimi i dhene eshte i pasakte.";
             exit();
         } else if ($checkPwd) {
             $userQuery = "SELECT * FROM perdoruesi WHERE email = ? AND password = ?";
@@ -44,11 +48,12 @@ class LoginDBUtils extends dbConnect
             if ($stmt->rowCount() == 0) {
                 $stmt = null;
                 header("location: login.php?error=usernotfound");
+                $_SESSION["error_msg"] = "Kjo llogari nuk ekziston";
                 exit();
             }
 
 
-            session_start();
+
             $_SESSION["userid"] = $user[0]["perdoruesi_id"];
 
             header("location: index.php?loginsuccess=true");
