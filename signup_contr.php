@@ -23,37 +23,31 @@ class SignupContr extends SignupDBUtils
         if ($this->fieldIsEmpty()) {
             header("location: signup.php?error=fieldempty");
             $_SESSION["error_msg"] = "Ju lutem shenoni te gjitha te dhenat.";
-            session_destroy();
             exit();
         }
         if (!$this->emriIsValid()) {
             header("location: signup.php?error=nameinvalid");
             $_SESSION["error_msg"] = "Emri nuk mund te permbaje numra.";
-            session_destroy();
             exit();
         }
         if (!$this->emailIsValid()) {
             header("location: signup.php?error=emailinvalid");
             $_SESSION["error_msg"] = "Ju lutem shenoni nje e-mail valid.";
-            session_destroy();
             exit();
         }
         if (!$this->passwordIsValid()) {
             header("location: signup.php?error=passwordinvalid");
             $_SESSION["error_msg"] = "Fjalekalimi duhet te jete me i gjate se 6 karaktere.";
-            session_destroy();
             exit();
         }
         if (!$this->pwMatch()) {
             header("location: signup.php?error=passwordsnotmatching");
             $_SESSION["error_msg"] = "Fjalekalimet nuk perputhen.";
-            session_destroy();
             exit();
         }
         if ($this->userAlreadyExists()) {
             header("location: signup.php?error=emailtaken");
             $_SESSION["error_msg"] = "Kjo email tashme ekziston.";
-            session_destroy();
             exit();
         }
 

@@ -18,11 +18,8 @@ if (isset($_POST["submit"])) {
 
     $signup->initSignup();
 
-    var_dump($_SESSION["form_data"]);
-
     unset($_SESSION["form_data"]);
     session_destroy();
-    // header("location: signup.php?error=none");
 }
 
 

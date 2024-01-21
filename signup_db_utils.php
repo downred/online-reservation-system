@@ -15,10 +15,7 @@ class SignupDBUtils extends dbConnect
             exit();
         }
 
-        session_start();
-        $_SESSION['signup_success'] = true;
-
-        header("location: login.php");
+        header("location: login.php?signupsuccess=true");
 
         $stmt = null;
     }
