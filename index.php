@@ -34,6 +34,9 @@
                     <li>
                         <div><a href="news.html">Të rejat</a></div>
                     </li>
+                    <li>
+                    <div><a href="FAQ.php">FAQ</a></div>
+                </li>
                 </div>
                 <li class="nav-section-two">
                     <a class="btn-light" href="login.php">Kyçu</a>
