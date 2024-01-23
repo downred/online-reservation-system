@@ -2,7 +2,6 @@
 
 class SignupDBUtils extends dbConnect
 {
-
     public function addUser($emri, $mbiemri, $email, $password)
     {
         $query = "INSERT INTO perdoruesi (emri, mbiemri, email, password) VALUES (?,?,?,?);";
