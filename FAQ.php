@@ -13,7 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
+<?php require_once(__DIR__.'/nav-bar.php'); ?>
+
+<!-- <header>
     <nav>
         <ul class="nav-container">
             <div class="nav-section-one">
@@ -38,7 +40,7 @@
             </li>
         </ul>
     </nav>
-</header>
+</header> -->
 <main>
     <div style="position: relative; height: 75vh">
         <div class="landing-img">
@@ -77,7 +79,9 @@
         </div>
     </div>
 </main>
-<footer>
+<?php require_once(__DIR__.'/footer.php'); ?>
+
+<!-- <footer>
     <div class="contacts-wrapper">
         <div class="logo-wrapper">
             <div class="logo-container">
@@ -93,7 +97,7 @@
             <p style="font-weight: 500">+383 49 123 123</p>
         </div>
     </div>
-</footer>
+</footer> -->
 <script src="./js/slider.js"></script>
 </body>
 </html>
