@@ -7,17 +7,17 @@
     flex-direction: row;
 }
 
-.login-image-container {
+.contact-image-container {
     width: 40%;
     height: 100vh;
     overflow: hidden;
 }
 
-.login-image-container img {
+.contact-image-container img {
     height: 100%;
 }
 
-.login-section {
+.contact-section {
     width: 60%;
     display: flex;
     align-items: center;
@@ -25,11 +25,11 @@
 }
 
 
-.login-logo img {
+.contact-logo img {
     height: 150px;
 }
 
-.login-container {
+.contact-container {
     display: flex;
     padding: 2rem;
     flex-direction: column;
@@ -39,17 +39,17 @@
     line-height: 2rem;
 }
 
-.login-container span, .login-container h1 {
+.contact-container span, .contact-container h1 {
     color: var(--color-accent);
 }
 
-.login-container .err-msg {
+.contact-container .err-msg {
     color: red;
     font-size: .8rem;
     text-align: left;
 }
 
-.login-input {
+.contact-input {
     height: 3rem;
     margin: 1rem 0;
     font-size: 1.5rem;
@@ -59,7 +59,17 @@
     border-radius: 10px;
 }
 
-.login-input::placeholder {
+textarea {
+    height: 9rem;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 300;
+    border: .5px solid black;
+    padding: 0 1rem;
+    border-radius: 10px;
+}
+
+.contact-input::placeholder {
     font-size: 1.5rem;
     font-weight: 300;
 }
