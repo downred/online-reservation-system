@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <?php
 include "../dbconnect.php";
-include "rezervimet_db_utils.php";
+include "db_utils.php";
 
 session_start();
 
-if($_SESSION["is_admin"] == 1) {
-    $rez_utils = new RezervimetDBUtils();
-    $result = $rez_utils->getRezervimet();
+if ($_SESSION["is_admin"] == 1) {
+    $rez_utils = new DBUtils();
+    $result = $rez_utils->getTeRejat();
 } else {
     header("location: ../index.php");
 }
@@ -21,6 +21,7 @@ if($_SESSION["is_admin"] == 1) {
     <link rel="stylesheet" href="../css/main.css">
     <title>Document</title>
     <link rel="stylesheet" href="../css/dashboard/rezervimet.css">
+    <script src="https://kit.fontawesome.com/24184bbc2f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -33,41 +34,38 @@ if($_SESSION["is_admin"] == 1) {
                 <table>
                     <thead>
                         <tr>
-                            <th>Klienti</th>
-                            <th>Emri i Hotelit</th>
-                            <th>Data e check-in</th>
-                            <th>Data e check-out</th>
-                            <th>Çmimi per nate</th>
-                            <th>Totali i pageses</th>
+                            <th>Titulli</th>
+                            <th>Detajet</th>
+                            <th>Lloji i lajmit</th>
+                            <th>Redakto</th>
+                            <th>Fshij</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($result as $row): ?>
                             <tr>
                                 <td>
-                                    <?php echo $row['Emri i klientit']; ?>
+                                    <?php echo $row['titulli']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $row['emri']; ?>
+                                    <?php echo $row['detajet']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $row['date_from']; ?>
+                                    <?php echo $row['lloji_i_lajmit']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $row['date_to']; ?>
+                                    Redakto
                                 </td>
                                 <td>
-                                    <?php echo $row['cmimi_per_nate']; ?>&euro;
-                                </td>
-                                <td>
-                                    <?php echo $row['Totali i pageses']; ?>&euro;
+                                    Fshij
                                 </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+                <i class="fas fa-plus"></i>
             <?php else: ?>
-                <p>Nuk ka asnje rezervim.</p>
+                <p>Nuk ka asnje lajm.</p>
             <?php endif; ?>
         </div>
     </div>

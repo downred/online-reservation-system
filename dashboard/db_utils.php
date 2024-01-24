@@ -1,5 +1,5 @@
 <?php
-class RezervimetDBUtils extends dbConnect
+class DBUtils extends dbConnect
 {
     public function getRezervimet()
     {
@@ -14,7 +14,23 @@ class RezervimetDBUtils extends dbConnect
 
         if (!$stmt->execute()) {
             $stmt = null;
-            header("location: ./dboard-rezervimet.php?error=stmtfailed");
+            header("location: ./dboard_rezervimet.php?error=stmtfailed");
+            exit();
+        }
+
+        $result = $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function getTeRejat() {
+        $query = "SELECT * FROM te_rejat";
+
+        $stmt = $this->connectDB()->prepare($query);
+
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: ./dboard_news.php?error=stmtfailed");
             exit();
         }
 

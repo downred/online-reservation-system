@@ -58,7 +58,7 @@ class LoginDBUtils extends dbConnect
             $_SESSION["is_admin"] = $user[0]["is_admin"];
 
             if ($_SESSION["is_admin"] == 1) {
-                header("location: ./dashboard/dboard-rezervimet.php");
+                header("location: ./dashboard/dboard_rezervimet.php");
             } else {
                 header("location: index.php?loginsuccess=true");
             }

@@ -24,11 +24,11 @@
         </div>
         <div class="links">
             <ul>
-                <li><a href="dboard-rezervimet.php">Rezervimet</a></li>
-                <li><a href="dboard-hotelet.php">Hotelet</a></li>
-                <li><a href="dboard-mesazhet.php">Mesazhet</a></li>
-                <li><a href="dboard-news.php">Te rejat</a></li>
-                <li><a href="dboard-logout.php">Çkyçu</a></li>
+                <li><a href="dboard_rezervimet.php">Rezervimet</a></li>
+                <li><a href="dboard_hotelet.php">Hotelet</a></li>
+                <li><a href="dboard_mesazhet.php">Mesazhet</a></li>
+                <li><a href="dboard_news.php">Te rejat</a></li>
+                <li><a href="../logout.php">Çkyçu</a></li>
             </ul>
         </div>
     </div>

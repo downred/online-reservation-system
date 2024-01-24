@@ -55,7 +55,6 @@ if (isset($_POST["submit"])) {
         <section class="login-section">
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="login-container">
-                    <?php echo var_dump($_SESSION); ?>
                     <div class="login-logo">
                         <img src="./images/logo/logo.png" alt="">
                     </div>
