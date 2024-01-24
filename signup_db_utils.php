@@ -4,7 +4,7 @@ class SignupDBUtils extends dbConnect
 {
     public function addUser($emri, $mbiemri, $email, $password)
     {
-        $query = "INSERT INTO perdoruesi (emri, mbiemri, email, password) VALUES (?,?,?,?);";
+        $query = "INSERT INTO perdoruesi (emri, mbiemri, email, password, is_admin) VALUES (?,?,?,?, false);";
         $stmt = $this->connectDB()->prepare($query);
         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
         

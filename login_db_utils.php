@@ -5,7 +5,7 @@ class LoginDBUtils extends dbConnect
 
     public function getUser($email, $password)
     {
-        $query = "SELECT password FROM perdoruesi WHERE email = ?";
+        $query = "SELECT password, is_admin FROM perdoruesi WHERE email = ?";
         $stmt = $this->connectDB()->prepare($query);
 
         if (!$stmt->execute(array($email))) {
@@ -28,7 +28,7 @@ class LoginDBUtils extends dbConnect
         session_start();
 
         if (!$checkPwd) {
-            $stmt = null;   
+            $stmt = null;
             header("location: login.php?error=wrongpassword");
             $_SESSION["error_msg"] = "Fjalekalimi i dhene eshte i pasakte.";
             exit();
@@ -55,8 +55,14 @@ class LoginDBUtils extends dbConnect
 
 
             $_SESSION["userid"] = $user[0]["perdoruesi_id"];
+            $_SESSION["is_admin"] = $user[0]["is_admin"];
 
-            header("location: index.php?loginsuccess=true");
+            if ($_SESSION["is_admin"] == 1) {
+                header("location: ./dashboard/dboard-rezervimet.php");
+            } else {
+                header("location: index.php?loginsuccess=true");
+            }
+
 
             $stmt = null;
 

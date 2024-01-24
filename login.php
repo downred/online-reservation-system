@@ -2,6 +2,10 @@
 <?php
 session_start();
 
+if (isset($_SESSION["userid"])) {
+    header("location: index.php");
+}
+
 $message;
 
 if (isset($_GET["signupsuccess"])) {
@@ -26,7 +30,6 @@ if (isset($_POST["submit"])) {
     var_dump($_SESSION["form_data"]);
 
     unset($_SESSION["form_data"]);
-    session_destroy();
 }
 ?>
 <html lang="en">
@@ -52,6 +55,7 @@ if (isset($_POST["submit"])) {
         <section class="login-section">
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="login-container">
+                    <?php echo var_dump($_SESSION); ?>
                     <div class="login-logo">
                         <img src="./images/logo/logo.png" alt="">
                     </div>
@@ -70,7 +74,6 @@ if (isset($_POST["submit"])) {
                         if (isset($_SESSION["error_msg"])) {
                             echo $_SESSION["error_msg"];
                         }
-                        session_destroy();
                         ?>
                     </span>
                     <button class="btn-light" name="submit" type="submit">Kyçu</button>

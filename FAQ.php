@@ -14,33 +14,6 @@
 </head>
 <body>
 <?php require_once(__DIR__.'/nav-bar.php'); ?>
-
-<!-- <header>
-    <nav>
-        <ul class="nav-container">
-            <div class="nav-section-one">
-                <li>
-                    <img src="./images/logo/logo.png" alt="" width="70px">
-                </li>
-                <li>
-                    <div><a href="index.php">Ballina</a></div>
-                </li>
-                <li>
-                    <div><a href="rezervo.html">Hotelet</a></div>
-                </li>
-                <li>
-                    <div><a href="rreth-nesh.html">Rreth nesh</a></div>
-                </li>
-                <li>
-                    <div><a href="FAQ.php">FAQ</a></div>
-                </li>
-            </div>
-            <li class="nav-section-two">
-                <a class="btn-light" href="login.html">Kyçu</a>
-            </li>
-        </ul>
-    </nav>
-</header> -->
 <main>
     <div style="position: relative; height: 75vh">
         <div class="landing-img">
@@ -80,24 +53,6 @@
     </div>
 </main>
 <?php require_once(__DIR__.'/footer.php'); ?>
-
-<!-- <footer>
-    <div class="contacts-wrapper">
-        <div class="logo-wrapper">
-            <div class="logo-container">
-                <img src="./images/logo/logo.png" alt="" width="75px">
-            </div>
-            <span class="copyright">
-                &copy; 2023 QuickStay, Inc. Te gjitha te drejtat e rezervuara
-            </span>
-        </div>
-        <div class="additional-info">
-            <p style="font-weight: bold">Na kontaktoni</p>
-            <p style="font-weight: 300">info@quickstay.net</p>
-            <p style="font-weight: 500">+383 49 123 123</p>
-        </div>
-    </div>
-</footer> -->
 <script src="./js/slider.js"></script>
 </body>
 </html>

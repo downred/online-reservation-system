@@ -3,6 +3,10 @@
 
 session_start();
 
+if (isset($_SESSION["userid"])) {
+    header("location: index.php");
+}
+
 if (isset($_POST["submit"])) {
     $emri = $_POST["name"];
     $mbiemri = $_POST["lastname"];
@@ -19,7 +23,6 @@ if (isset($_POST["submit"])) {
     $signup->initSignup();
 
     unset($_SESSION["form_data"]);
-    session_destroy();
 }
 
 
@@ -77,7 +80,6 @@ if (isset($_POST["submit"])) {
                         if (isset($_SESSION["error_msg"])) {
                             echo $_SESSION["error_msg"];
                         }
-                        session_destroy();
                         ?>
                     </span>
                     <button class="btn-light" type="submit" name="submit">Kyçu</button>
