@@ -27,6 +27,9 @@
                 <li>
                     <div><a href="FAQ.php">FAQ</a></div>
                 </li>
+                <li>
+                    <div><a href="kontakt.php">Na kontaktoni</a></div>
+                </li>
             </div>
             <li class="nav-section-two">
                 <a class="btn-light m-2" href="login.php">Kyçu</a>
