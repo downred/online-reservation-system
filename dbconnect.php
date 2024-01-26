@@ -15,7 +15,7 @@ class dbConnect
 
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); 
         } catch (PDOException $e) {
             die("Ka ndodhur nje problem gjate lidhjes me databazen {$this->dbname} " . $e->getMessage());
         }

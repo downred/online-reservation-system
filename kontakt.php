@@ -1,4 +1,22 @@
 <!doctype html>
+<?php
+if (isset($_POST["submit"])) {
+    $name = $_POST["name"];
+    $lastname = $_POST["lastname"];
+    $email = $_POST["email"];
+    $message = $_POST["message"];
+
+    include "dbconnect.php";
+    include "insert_message.php";
+    include "kontakt_contr.php";
+
+    $send_message = new kontaktContr($name, $lastname, $email, $message);
+
+    $send_message->send_message();
+}
+
+
+?>
 <html lang="en">
     
 <head>
@@ -16,6 +34,9 @@
 </head>
 
 <body>
+    <header>
+    <?php require_once(__DIR__ . '/nav-bar.php'); ?>
+    </header>
     <div class="wrapper">
         <section class="contact-image-container">
             <img src="./images/hotel12.jpg" alt="">
@@ -33,14 +54,13 @@
 
                     <input placeholder="Email" type="email" id="email" name="email" class="contact-input">
 
-                    <textarea name="Message" placeholder="Mesazhi juaj" id="message"></textarea>
+                    <textarea placeholder="Mesazhi juaj" id="message" name="message" class="contact-textarea"></textarea>
 
                     <button class="btn-light" type="submit" name="submit">Dergo mesazhin</button>
                 </div>
             </form>
         </section>
     </div>
-    <script src="./js/signup.js"></script>
 </body>
 
 </html>
