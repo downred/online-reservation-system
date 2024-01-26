@@ -28,7 +28,7 @@ if ($_SESSION["is_admin"] == 1) {
         <div class="navbar-container">
             <?php require_once(__DIR__ . '/navbar.php') ?>
         </div>
-        <div class="entry-container">
+        <div class="content-container">
             <?php if (!empty($result)): ?>
                 <table>
                     <thead>
