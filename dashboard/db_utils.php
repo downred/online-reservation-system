@@ -38,4 +38,25 @@ class DBUtils extends dbConnect
 
         return $result;
     }
+
+    public function addArtikullin($title, $details, $type)
+    {
+        $targetDir = "../images/uploads/";
+        $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+        move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
+
+
+        $query = "INSERT INTO te_rejat (titulli, detajet, lloji_i_lajmit, photo_path) VALUES (?,?,?,?);";
+        $stmt = $this->connectDB()->prepare($query);
+
+        if (!$stmt->execute(array($title, $details, $type, $targetFile))) {
+            $stmt = null;
+            header("location: dboard_add_news.php?error=stmtfailed");
+            exit();
+        }
+
+        header("location: dboard_news.php");
+
+        $stmt = null;
+    }
 }

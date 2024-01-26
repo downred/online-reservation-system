@@ -27,8 +27,6 @@ if (isset($_POST["submit"])) {
 
     $login->initLogin();
 
-    var_dump($_SESSION["form_data"]);
-
     unset($_SESSION["form_data"]);
 }
 ?>
