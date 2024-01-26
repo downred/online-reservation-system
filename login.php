@@ -64,8 +64,8 @@ if (isset($_POST["submit"])) {
                     ?>
                     <input placeholder="Email" type="email" id="email" name="email"
                         value="<?php echo isset($_SESSION['form_data']['email']) ? htmlspecialchars($_SESSION['form_data']['email']) : ''; ?>"
-                        class="login-input">
-                    <input placeholder="Fjalëkalimi" type="password" id="password" class="login-input"
+                        class="input">
+                    <input placeholder="Fjalëkalimi" type="password" id="password" class="input"
                         value="<?php echo isset($_SESSION['form_data']['password']) ? htmlspecialchars($_SESSION['form_data']['password']) : ''; ?>"
                         name="password">
                     <span class="err-msg">

@@ -116,6 +116,22 @@ nav li {
     height: 180px;
 }
 
+/* input */
+.input {
+    height: 3rem;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 300;
+    border: .5px solid black;
+    padding: 0 1rem;
+    border-radius: 10px;
+}
+
+.input::placeholder {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
 /* misc */
 .m-2 {
     margin: 1rem;

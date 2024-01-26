@@ -20,13 +20,13 @@ if ($_SESSION["is_admin"] == 1) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/dashboard/rezervimet.css">
+    <link rel="stylesheet" href="../css/dashboard/dboard-main.css">
 </head>
 
 <body>
     <div class="wrapper">
         <div class="navbar-container">
-            <?php include 'navbar.php' ?>
+            <?php require_once(__DIR__ . '/navbar.php') ?>
         </div>
         <div class="entry-container">
             <?php if (!empty($result)): ?>

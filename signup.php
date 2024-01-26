@@ -34,7 +34,7 @@ if (isset($_POST["submit"])) {
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Online Reservation System - Sign Up</title>
+    <title>Quickstay - Kyçu</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,24 +56,24 @@ if (isset($_POST["submit"])) {
                     <h1>Hap një llogari të re</h1>
                     <input placeholder="Emri" type="text" id="name" name="name"
                         value="<?php echo isset($_SESSION['form_data']['name']) ? htmlspecialchars($_SESSION['form_data']['name']) : ''; ?>"
-                        class="login-input">
+                        class="input">
 
                     <input placeholder="Mbiemri" type="text" id="lastname" name="lastname"
                         value="<?php echo isset($_SESSION['form_data']['lastname']) ? htmlspecialchars($_SESSION['form_data']['lastname']) : ''; ?>"
-                        class="login-input">
+                        class="input">
 
                     <input placeholder="Email" type="email" id="email" name="email"
                         value="<?php echo isset($_SESSION['form_data']['email']) ? htmlspecialchars($_SESSION['form_data']['email']) : ''; ?>"
-                        class="login-input">
+                        class="input">
 
                     <input placeholder="Fjalëkalimi" type="password" id="password"
                         value="<?php echo isset($_SESSION['form_data']['password']) ? htmlspecialchars($_SESSION['form_data']['password']) : ''; ?>"
-                        class="login-input" name="password">
+                        class="input" name="password">
 
                     <input placeholder="Konfirmo fjalëkalimin" type="password" id="password_confirm"
                         name="password_confirm"
                         value="<?php echo isset($_SESSION['form_data']['password_confirm']) ? htmlspecialchars($_SESSION['form_data']['password_confirm']) : ''; ?>"
-                        class="login-input">
+                        class="input">
 
                     <span class="err-msg">
                         <?php

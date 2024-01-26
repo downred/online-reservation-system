@@ -20,16 +20,16 @@ if ($_SESSION["is_admin"] == 1) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/dashboard/rezervimet.css">
+    <link rel="stylesheet" href="../css/dashboard/dboard-main.css">
     <script src="https://kit.fontawesome.com/24184bbc2f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="navbar-container">
-            <?php include 'navbar.php' ?>
+            <?php require_once(__DIR__ . '/navbar.php') ?>
         </div>
-        <div class="entry-container">
+        <div class="content-container">
             <?php if (!empty($result)): ?>
                 <table>
                     <thead>
@@ -54,16 +54,16 @@ if ($_SESSION["is_admin"] == 1) {
                                     <?php echo $row['lloji_i_lajmit']; ?>
                                 </td>
                                 <td>
-                                    Redakto
+                                    <div class="icon-container"><i class="far fa-edit fa-2x"></i></div>
                                 </td>
                                 <td>
-                                    Fshij
+                                    <div class="icon-container"><i class="fas fa-trash-alt fa-2x"></i></div>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <i class="fas fa-plus"></i>
+                <a href="dboard_add_news.php"><i class="fas fa-plus fa-2x"></i></a>
             <?php else: ?>
                 <p>Nuk ka asnje lajm.</p>
             <?php endif; ?>
