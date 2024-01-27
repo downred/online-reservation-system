@@ -13,36 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     </head>
     <?php require_once(__DIR__.'/nav-bar.php'); ?>
-    <!-- <header>
-        
-        <nav>
-            <ul class="nav-container">
-                <div class="nav-section-one">
-                    <li>
-                        <img src="./images/logo/logo.png" alt="" width="70px">
-                    </li>
-                    <li>
-                        <div><a href="index.php">Ballina</a></div>
-                    </li>
-                    <li>
-                        <div><a href="rezervo.html">Hotelet</a></div>
-                    </li>
-                    <li>
-                        <div><a href="rreth-nesh.html">Rreth nesh</a></div>
-                    </li>
-                    <li>
-                        <div><a href="news.html">Të rejat</a></div>
-                    </li>
-                    <li>
-                        <div><a href="FAQ.php">FAQ</a></div>
-                    </li>
-                </div>
-                <li class="nav-section-two">
-                    <a class="btn-light" href="login.html">Kyçu</a>
-                </li>
-            </ul>
-        </nav>
-    </header> -->
     <body>
         <!-- POP-UP FORM -->
         <div class="form-popup" id="popup">

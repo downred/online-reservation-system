@@ -57,9 +57,9 @@ class DBUtils extends dbConnect
 
     public function addArtikullin($title, $details, $type)
     {
-        $targetDir = "../images/uploads/";
+        $targetDir = "./images/uploads/";
         $targetFile = $targetDir . basename($_FILES["image"]["name"]);
-        move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
+        move_uploaded_file($_FILES["image"]["tmp_name"], ".".$targetFile);
 
 
         $query = "INSERT INTO te_rejat (titulli, detajet, lloji_i_lajmit, photo_path) VALUES (?,?,?,?);";
