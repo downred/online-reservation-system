@@ -54,13 +54,14 @@ if ($_SESSION["is_admin"] == 1) {
                                     <?php echo $row['lloji_i_lajmit']; ?>
                                 </td>
                                 <td>
-                                    <div class="icon-container"><i class="far fa-edit fa-2x"></i></div>
+                                    <div class="icon-container">
+                                        <a href="dboard_add_news.php?id=<?php echo $row['te_rejat_id']; ?>"><i class="far fa-edit fa-2x"></i></a>
+                                    </div>
                                 </td>
                                 <td>
                                     <div class="icon-container">
-                                        <a href="dboard_delete_news.php?id=<?php echo $row['te_rejat_id']; ?>"><i
-                                                class="fas fa-trash-alt fa-2x"></i></a>
-
+                                        <a href="dboard_delete_news.php?id=<?php echo $row['te_rejat_id']; ?>">
+                                        <i class="fas fa-trash-alt fa-2x"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -70,6 +71,7 @@ if ($_SESSION["is_admin"] == 1) {
                 <a href="dboard_add_news.php"><i class="fas fa-plus fa-2x"></i></a>
             <?php else: ?>
                 <p>Nuk ka asnje lajm.</p>
+                <a href="dboard_add_news.php"><i class="fas fa-plus fa-2x"></i></a>
             <?php endif; ?>
         </div>
     </div>

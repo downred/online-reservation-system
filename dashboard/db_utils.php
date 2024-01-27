@@ -39,6 +39,22 @@ class DBUtils extends dbConnect
         return $result;
     }
 
+    public function getArtikullinByID($id) {
+        $query = "SELECT * FROM te_rejat WHERE te_rejat_id = $id";
+
+        $stmt = $this->connectDB()->prepare($query);
+
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: ./dboard_news.php?error=stmtfailed");
+            exit();
+        }
+
+        $result = $stmt->fetchAll();
+
+        return $result;
+    }
+
     public function addArtikullin($title, $details, $type)
     {
         $targetDir = "../images/uploads/";
