@@ -59,4 +59,36 @@ class DBUtils extends dbConnect
 
         $stmt = null;
     }
+
+    public function deleteArtikullin($article_id) {
+        $image_query = "SELECT photo_path FROM te_rejat WHERE te_rejat_id = $article_id";
+
+        $stmt = $this->connectDB()->prepare($image_query);
+
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: dboard_add_news.php?error=stmtfailed");
+            exit();
+        }
+
+        $image_result = $stmt->fetchAll();
+
+        if (!empty($image_result)) {
+            $image_row = $image_result[0];
+            $image_path = $image_row['photo_path'];
+
+            $delete_query = "DELETE FROM te_rejat WHERE te_rejat_id = ?";
+            $stmt = $this->connectDB()->prepare($delete_query);
+
+            if (!$stmt->execute([$article_id])) {
+                $stmt = null;
+                header("location: dboard_add_news.php?error=stmtfailed");
+                exit();
+            }
+
+            if ($image_path && file_exists($image_path)) {
+                unlink($image_path);
+            }
+        }
+    }
 }

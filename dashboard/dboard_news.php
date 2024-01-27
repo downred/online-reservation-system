@@ -19,7 +19,7 @@ if ($_SESSION["is_admin"] == 1) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
-    <title>Document</title>
+    <title>Të rejat</title>
     <link rel="stylesheet" href="../css/dashboard/dboard-main.css">
     <script src="https://kit.fontawesome.com/24184bbc2f.js" crossorigin="anonymous"></script>
 </head>
@@ -57,7 +57,11 @@ if ($_SESSION["is_admin"] == 1) {
                                     <div class="icon-container"><i class="far fa-edit fa-2x"></i></div>
                                 </td>
                                 <td>
-                                    <div class="icon-container"><i class="fas fa-trash-alt fa-2x"></i></div>
+                                    <div class="icon-container">
+                                        <a href="dboard_delete_news.php?id=<?php echo $row['te_rejat_id']; ?>"><i
+                                                class="fas fa-trash-alt fa-2x"></i></a>
+
+                                    </div>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
