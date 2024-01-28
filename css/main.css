@@ -75,7 +75,7 @@ nav li {
 .rezervo-btn {
     padding: .5rem;
     background-color: var(--color-light);
-    width: min-content !important;
+    width: min-content;
     height: min-content;
     border-radius: 10px;
     white-space: nowrap;
