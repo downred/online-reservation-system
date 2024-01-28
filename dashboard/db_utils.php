@@ -109,6 +109,36 @@ class DBUtils extends dbConnect
                 unlink($image_path);
             }
         }
+        
+    }
+    public function getMesazhet() {
+        $query = "SELECT * FROM mesazhi";
+
+        $stmt = $this->connectDB()->prepare($query);
+
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: ./dboard_news.php?error=stmtfailed");
+            exit();
+        }
+
+        $result = $stmt->fetchAll();
+
+        return $result;
+    }
+    public function deleteMesazhin($mesazhi_ID) {
+        $query = "DELETE FROM mesazhi WHERE mesazhi_ID = ?";
+        $stmt = $this->connectDB()->prepare($query);
+    
+        $stmt->bindParam(1, $mesazhi_ID, PDO::PARAM_INT);
+    
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: dboard_mesazhet.php?error=stmtfailed");
+            exit();
+        }
+        header("location: dboard_delete_messages.php?deleteSuccessful=true");
+        $stmt = null;
     }
 
     public function updateArtikullin($id, $titulli, $detajet, $type)
