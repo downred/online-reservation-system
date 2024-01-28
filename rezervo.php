@@ -14,7 +14,6 @@
     </head>
     <?php require_once(__DIR__.'/nav-bar.php'); ?>
     <body>
-        <!-- POP-UP FORM -->
         <div class="form-popup" id="popup">
             <h1>Enter the dates of your reservation</h1>
             <form action="">

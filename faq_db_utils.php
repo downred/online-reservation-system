@@ -1,9 +1,10 @@
 <?php
-class NewsDBUtils extends dbConnect
+
+class FaqDbUtils extends dbConnect
 {
-    public function getTeRejat()
+    public function getFAQ()
     {
-        $query = "SELECT * FROM te_rejat";
+        $query = "SELECT * FROM faq";
 
         $stmt = $this->connectDB()->prepare($query);
 
@@ -16,10 +17,5 @@ class NewsDBUtils extends dbConnect
         $result = $stmt->fetchAll();
 
         return $result;
-    }
-
-    public function filterByArticleType($item, $article_type)
-    {
-        return $item['lloji_i_lajmit'] == $article_type;
     }
 }

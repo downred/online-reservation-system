@@ -1,7 +1,7 @@
-.main-title-img {
+.main-title-img{
     width: 500px;
     height: 400px;
-    flex: 1;
+    flex:1;
     border-radius: 30px;
     overflow: hidden;
 }
@@ -21,7 +21,7 @@
     gap: 20px;
     cursor: pointer;
     transition: all 1s;
-}
+} 
 
 .main-title-wrapper:hover {
     opacity: .60;
@@ -62,7 +62,7 @@
 .article-img img {
     width: 500px;
     height: 250px;
-    transition: all 1s;
+        transition: all 1s;
 }
 
 .article-img-border {

@@ -11,18 +11,17 @@ $main_article_type = "Titull kryesor";
 $other_titles_type = "Te rejat";
 
 $main_title = array_values(array_filter($result, function ($item) use ($main_article_type) {
-    return filterByArticleType($item, $main_article_type);
+    global $newsDBUtils;
+    return $newsDBUtils->filterByArticleType($item, $main_article_type);
 }));
 
 
 $other_titles = array_values(array_filter($result, function ($item) use ($other_titles_type) {
-    return filterByArticleType($item, $other_titles_type);
+    global $newsDBUtils;
+    return $newsDBUtils->filterByArticleType($item, $other_titles_type);
 }));
 
-function filterByArticleType($item, $article_type)
-{
-    return $item['lloji_i_lajmit'] == $article_type;
-}
+
 ?>
 <html lang="en">
 

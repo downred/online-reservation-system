@@ -37,9 +37,6 @@
                     < </button>
                         <div class="slider-images-wrapper">
                             <div class="slider-images">
-                                <!--                    <div class="slider-img">-->
-                                <!--                        <img src="./images/hotel1.jpg" alt="" id="1">-->
-                                <!--                    </div>-->
                             </div>
                         </div>
                         <button class="slide-btn slide-btn-right" onclick="slideRight()">
