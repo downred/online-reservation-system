@@ -5,22 +5,29 @@ include "db_utils.php";
 
 $db_utils = new DBUtils();
 
-if (isset($_POST["submit"])) {
-    $title = $_POST["title"];
-    $details = $_POST["details"];
-    $news_type = $_POST["news_type"];
+session_start();
 
-    if (isset($_POST["id"])) {
-        $id = $_POST["id"];
-        $db_utils->updateArtikullin($id, $title, $details, $news_type);
+if ($_SESSION["is_admin"] == 1) {   
+    if (isset($_POST["submit"])) {
+        $title = $_POST["title"];
+        $details = $_POST["details"];
+        $news_type = $_POST["news_type"];
+
+        if (isset($_POST["id"])) {
+            $id = $_POST["id"];
+            $db_utils->updateArtikullin($id, $title, $details, $news_type);
+        } else {
+            $db_utils->addArtikullin($title, $details, $news_type);
+        }
     } else {
-        $db_utils->addArtikullin($title, $details, $news_type);
+        if (isset($_GET["id"])) {
+            $id = $_GET["id"];
+            $result = $db_utils->getArtikullinByID($id);
+        }
     }
+
 } else {
-    if (isset($_GET["id"])) {
-        $id = $_GET["id"];
-        $result = $db_utils->getArtikullinByID($id);
-    }
+    header("location: ../index.php");
 }
 ?>
 <html lang="en">
