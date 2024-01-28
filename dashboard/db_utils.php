@@ -69,7 +69,7 @@ class DBUtils extends dbConnect
 
         if (!$stmt->execute(array($title, $details, $type, $targetFile))) {
             $stmt = null;
-            header("location: dboard_add_news.php?error=stmtfailed");
+            header("location: dboard_manage_news.php?error=stmtfailed");
             exit();
         }
 
@@ -86,7 +86,7 @@ class DBUtils extends dbConnect
 
         if (!$stmt->execute()) {
             $stmt = null;
-            header("location: dboard_add_news.php?error=stmtfailed");
+            header("location: dboard_manage_news.php?error=stmtfailed");
             exit();
         }
 
@@ -101,7 +101,7 @@ class DBUtils extends dbConnect
 
             if (!$stmt->execute([$article_id])) {
                 $stmt = null;
-                header("location: dboard_add_news.php?error=stmtfailed");
+                header("location: dboard_manage_news.php?error=stmtfailed");
                 exit();
             }
 
@@ -109,9 +109,10 @@ class DBUtils extends dbConnect
                 unlink($image_path);
             }
         }
-        
+
     }
-    public function getMesazhet() {
+    public function getMesazhet()
+    {
         $query = "SELECT * FROM mesazhi";
 
         $stmt = $this->connectDB()->prepare($query);
@@ -126,12 +127,13 @@ class DBUtils extends dbConnect
 
         return $result;
     }
-    public function deleteMesazhin($mesazhi_ID) {
+    public function deleteMesazhin($mesazhi_ID)
+    {
         $query = "DELETE FROM mesazhi WHERE mesazhi_ID = ?";
         $stmt = $this->connectDB()->prepare($query);
-    
+
         $stmt->bindParam(1, $mesazhi_ID, PDO::PARAM_INT);
-    
+
         if (!$stmt->execute()) {
             $stmt = null;
             header("location: dboard_mesazhet.php?error=stmtfailed");
@@ -152,7 +154,7 @@ class DBUtils extends dbConnect
 
         if (!$stmt->execute(array($titulli, $detajet, $type, $targetFile, $id))) {
             $stmt = null;
-            header("location: dboard_add_news.php?error=stmtfailed");
+            header("location: dboard_manage_news.php?error=stmtfailed");
             exit();
         }
 

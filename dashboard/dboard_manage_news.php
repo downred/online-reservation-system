@@ -25,7 +25,6 @@ if ($_SESSION["is_admin"] == 1) {
             $result = $db_utils->getArtikullinByID($id);
         }
     }
-
 } else {
     header("location: ../index.php");
 }
