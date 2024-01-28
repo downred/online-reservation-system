@@ -23,7 +23,8 @@ class DBUtils extends dbConnect
         return $result;
     }
 
-    public function getTeRejat() {
+    public function getTeRejat()
+    {
         $query = "SELECT * FROM te_rejat";
 
         $stmt = $this->connectDB()->prepare($query);
@@ -39,7 +40,8 @@ class DBUtils extends dbConnect
         return $result;
     }
 
-    public function getArtikullinByID($id) {
+    public function getArtikullinByID($id)
+    {
         $query = "SELECT * FROM te_rejat WHERE te_rejat_id = $id";
 
         $stmt = $this->connectDB()->prepare($query);
@@ -59,7 +61,7 @@ class DBUtils extends dbConnect
     {
         $targetDir = "./images/uploads/";
         $targetFile = $targetDir . basename($_FILES["image"]["name"]);
-        move_uploaded_file($_FILES["image"]["tmp_name"], ".".$targetFile);
+        move_uploaded_file($_FILES["image"]["tmp_name"], "." . $targetFile);
 
 
         $query = "INSERT INTO te_rejat (titulli, detajet, lloji_i_lajmit, photo_path) VALUES (?,?,?,?);";
@@ -76,7 +78,8 @@ class DBUtils extends dbConnect
         $stmt = null;
     }
 
-    public function deleteArtikullin($article_id) {
+    public function deleteArtikullin($article_id)
+    {
         $image_query = "SELECT photo_path FROM te_rejat WHERE te_rejat_id = $article_id";
 
         $stmt = $this->connectDB()->prepare($image_query);
@@ -106,5 +109,25 @@ class DBUtils extends dbConnect
                 unlink($image_path);
             }
         }
+    }
+
+    public function updateArtikullin($id, $titulli, $detajet, $type)
+    {
+        $targetDir = "./images/uploads/";
+        $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+        move_uploaded_file($_FILES["image"]["tmp_name"], "." . $targetFile);
+
+        $query = "UPDATE te_rejat SET titulli=?, detajet=?, lloji_i_lajmit=?, photo_path=? WHERE te_rejat_id=?";
+        $stmt = $this->connectDB()->prepare($query);
+
+        if (!$stmt->execute(array($titulli, $detajet, $type, $targetFile, $id))) {
+            $stmt = null;
+            header("location: dboard_add_news.php?error=stmtfailed");
+            exit();
+        }
+
+        header("location: dboard_news.php");
+
+        $stmt = null;
     }
 }
