@@ -55,13 +55,14 @@ if ($_SESSION["is_admin"] == 1) {
                                 </td>
                                 <td>
                                     <div class="icon-container">
-                                        <a href="dboard_add_news.php?id=<?php echo $row['te_rejat_id']; ?>"><i class="far fa-edit fa-2x"></i></a>
+                                        <a href="dboard_add_news.php?id=<?php echo $row['te_rejat_id']; ?>"><i
+                                                class="far fa-edit fa-2x"></i></a>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="icon-container">
                                         <a href="dboard_delete_news.php?id=<?php echo $row['te_rejat_id']; ?>">
-                                        <i class="fas fa-trash-alt fa-2x"></i></a>
+                                            <i class="fas fa-trash-alt fa-2x"></i></a>
                                     </div>
                                 </td>
                             </tr>

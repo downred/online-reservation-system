@@ -12,7 +12,6 @@ if (isset($_POST["submit"])) {
 
     if (isset($_POST["id"])) {
         $id = $_POST["id"];
-
         $db_utils->updateArtikullin($id, $title, $details, $news_type);
     } else {
         $db_utils->addArtikullin($title, $details, $news_type);
@@ -61,7 +60,10 @@ if (isset($_POST["submit"])) {
             </div>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"
                 enctype="multipart/form-data">
-                <input type="hidden" name="id" value="<?php echo isset($result[0]["te_rejat_id"]) ? $result[0]["te_rejat_id"] : ''; ?>">
+                <?php if (isset($_GET["id"])): ?>
+                    <input type="hidden" name="id"
+                        value="<?php echo isset($result[0]["te_rejat_id"]) ? $result[0]["te_rejat_id"] : ''; ?>">
+                <?php endif; ?>
                 <div class="form-container">
                     <div class="form-row">
                         <label for="title">Titulli</label>

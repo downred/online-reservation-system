@@ -38,23 +38,25 @@ function filterByArticleType($item, $article_type)
     <?php require_once(__DIR__ . '/nav-bar.php'); ?>
     <main>
         <div class="content-wrapper">
-            <section>
-                <div class="main-title-wrapper">
-                    <div class="main-title-img article-img-border">
-                        <img src="<?php echo $main_title[0]["photo_path"] ?>" alt="">
-                    </div>
-                    <div class="main-title-details">
-                        <div class="main-title-header">
-                            <h1>
-                                <?php echo $main_title[0]["titulli"] ?>
-                            </h1>
+            <?php if (!empty($main_title)): ?>
+                <section>
+                    <div class="main-title-wrapper">
+                        <div class="main-title-img article-img-border">
+                            <img src="<?php echo $main_title[0]["photo_path"] ?>" alt="">
                         </div>
-                        <div class="main-title-text">
-                            <?php echo $main_title[0]["detajet"] ?>
+                        <div class="main-title-details">
+                            <div class="main-title-header">
+                                <h1>
+                                    <?php echo $main_title[0]["titulli"] ?>
+                                </h1>
+                            </div>
+                            <div class="main-title-text">
+                                <?php echo $main_title[0]["detajet"] ?>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            <?php endif; ?>
 
             <section>
                 <div class="latest-wrapper">
@@ -64,12 +66,16 @@ function filterByArticleType($item, $article_type)
                             <div class="article">
                                 <div class="article-img article-img-border">
                                     <img src="<?php echo $article["photo_path"] ?>" alt="">
-                                    </div>
-                                    <div class="article-details">
-                                        <h2><?php echo $article["titulli"] ?></h3>
-                                            <p><?php echo $article["detajet"] ?></p>
-                                    </div>
                                 </div>
+                                <div class="article-details">
+                                    <h2>
+                                        <?php echo $article["titulli"] ?>
+                                        </h3>
+                                        <p>
+                                            <?php echo $article["detajet"] ?>
+                                        </p>
+                                </div>
+                            </div>
                         <?php endforeach; ?>
                     </div>
                 </div>
