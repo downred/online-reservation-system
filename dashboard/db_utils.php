@@ -148,14 +148,28 @@ class DBUtils extends dbConnect
         $targetDir = "./images/uploads/";
         $targetFile = $targetDir . basename($_FILES["image"]["name"]);
         move_uploaded_file($_FILES["image"]["tmp_name"], "." . $targetFile);
+        $test = $_FILES["image"]["name"];
 
-        $query = "UPDATE te_rejat SET titulli=?, detajet=?, lloji_i_lajmit=?, photo_path=? WHERE te_rejat_id=?";
+        if ($_FILES["image"]["name"] == "") {
+            $query = "UPDATE te_rejat SET titulli=?, detajet=?, lloji_i_lajmit=? WHERE te_rejat_id=?";
+        } else {
+            $query = "UPDATE te_rejat SET titulli=?, detajet=?, lloji_i_lajmit=?, photo_path=? WHERE te_rejat_id=?";
+        }
+
         $stmt = $this->connectDB()->prepare($query);
 
-        if (!$stmt->execute(array($titulli, $detajet, $type, $targetFile, $id))) {
-            $stmt = null;
-            header("location: dboard_manage_news.php?error=stmtfailed");
-            exit();
+        if ($_FILES["image"]["name"] == "") {
+            if (!$stmt->execute(array($titulli, $detajet, $type, $id))) {
+                $stmt = null;
+                header("location: dboard_manage_news.php?error=stmtfailed");
+                exit();
+            }
+        } else {
+            if (!$stmt->execute(array($titulli, $detajet, $type, $targetFile, $id))) {
+                $stmt = null;
+                header("location: dboard_manage_news.php?error=stmtfailed");
+                exit();
+            }
         }
 
         header("location: dboard_news.php");

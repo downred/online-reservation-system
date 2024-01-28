@@ -7,7 +7,7 @@ $db_utils = new DBUtils();
 
 session_start();
 
-if ($_SESSION["is_admin"] == 1) {   
+if ($_SESSION["is_admin"] == 1) {
     if (isset($_POST["submit"])) {
         $title = $_POST["title"];
         $details = $_POST["details"];
@@ -93,6 +93,9 @@ if ($_SESSION["is_admin"] == 1) {
                     <div class="form-row">
                         <label for="image">Imazhi</label>
                         <input type="file" name="image" id="image">
+                        <?php if (isset($result[0]["photo_path"])): ?>
+                            <img width="200px" src="<?php echo "." . $result[0]["photo_path"]; ?>" alt="Current Image">
+                        <?php endif; ?>
                     </div>
                     <div class="form-row">
                         <button type="submit" name="submit">Submit</button>
