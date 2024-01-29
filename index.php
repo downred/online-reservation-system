@@ -1,3 +1,13 @@
+<?php
+include "./dbconnect.php";
+include "index_db_utils.php";
+
+
+$rez_utils = new IndexDBUtils();
+$hotel_images = $rez_utils->getHotelImages();
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -37,6 +47,12 @@
                     < </button>
                         <div class="slider-images-wrapper">
                             <div class="slider-images">
+                                <?php foreach ($hotel_images as $image): ?>
+                                    <div class="slider-img">
+                                        <img src="<?php echo htmlspecialchars($image["image_path"]) ?>"
+                                            alt="Image <?php echo htmlspecialchars($image["image_id"]) ?>">
+                                    </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                         <button class="slide-btn slide-btn-right" onclick="slideRight()">
