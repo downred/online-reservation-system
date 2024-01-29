@@ -176,4 +176,24 @@ class DBUtils extends dbConnect
 
         $stmt = null;
     }
+    public function addHoteli($emri, $adresa, $pershkrimi, $cmimi, $rating, $photo_path)
+    {
+        // $targetDir = "./images/uploads/";
+        // $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+        // move_uploaded_file($_FILES["image"]["tmp_name"], "." . $targetFile);
+
+
+        $query = "INSERT INTO hoteli(emri, adresa, pershkrimi, cmimi_per_nate, rating, photo_path) VALUES (?,?,?,?,?,?);";
+        $stmt = $this->connectDB()->prepare($query);
+
+        if (!$stmt->execute(array($emri, $adresa, $pershkrimi, $cmimi, $rating, $photo_path))) {
+            $stmt = null;
+            header("location: dboard_hotelet_add.php?error=stmtfailed");
+            exit();
+        }
+
+        header("location: dboard_hotelet_add.php");
+
+        $stmt = null;
+    }
 }

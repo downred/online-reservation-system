@@ -25,7 +25,7 @@
         <div class="links">
             <ul>
                 <li><a href="dboard_rezervimet.php">Rezervimet</a></li>
-                <li><a href="dboard_hotelet.php">Hotelet</a></li>
+                <li><a href="dboard_hotelet_add.php">Hotelet</a></li>
                 <li><a href="dboard_mesazhet.php">Mesazhet</a></li>
                 <li><a href="dboard_news.php">Te rejat</a></li>
                 <li><a href="../logout.php">Çkyçu</a></li>
