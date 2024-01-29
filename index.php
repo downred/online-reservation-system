@@ -5,6 +5,7 @@ include "index_db_utils.php";
 
 $rez_utils = new IndexDBUtils();
 $hotel_images = $rez_utils->getHotelImages();
+$feedback = $rez_utils->getFeedback();
 
 ?>
 
@@ -63,34 +64,22 @@ $hotel_images = $rez_utils->getHotelImages();
         <section id="s2">
             <h3>Çfarë thonë të tjerët për ne?</h3>
             <div class="person-info-wrapper">
-                <div class="person-info-container">
-                    <div class="person">
-                        <img src="./images/icons/circle.png" alt="">
+                <?php foreach ($feedback as $fb): ?>
+                    <div class="person-info-container">
+                        <div class="person">
+                            <img src="./images/icons/circle.png" alt="">
+                        </div>
+                        <div class="person-info">
+                            <p>
+                                <?php echo htmlspecialchars($fb["feedback_content"]) ?>
+                            </p>
+                            <p class="person-name">
+                                <?php echo htmlspecialchars($fb["feedback_name"]) ?>
+                            </p>
+                        </div>
                     </div>
-                    <div class="person-info">
-                        <p>Kam kaluar momente te paharruara gjate pushimit tim vitin e kaluar dhe definitivisht do doja
-                            te kthehem prap.</p>
-                        <p class="person-name">Filan Fisteku</p>
-                    </div>
-                </div>
-                <div class="person-info-container">
-                    <div class="person">
-                        <img src="./images/icons/circle.png" alt="">
-                    </div>
-                    <div class="person-info">
-                        <p>Hotelet me te bukura ne bote. Me te vertete si nje enderr...</p>
-                        <p class="person-name">Filan Fisteku</p>
-                    </div>
-                </div>
-                <div class="person-info-container">
-                    <div class="person">
-                        <img src="./images/icons/circle.png" alt="">
-                    </div>
-                    <div class="person-info">
-                        <p>Ushqimi ishte i klasit me te larte dhe çmimet shume te arsyeshme.</p>
-                        <p class="person-name">Filan Fisteku</p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
+
             </div>
         </section>
     </main>

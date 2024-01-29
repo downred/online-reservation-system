@@ -18,4 +18,22 @@ class IndexDBUtils extends dbConnect
 
         return $result;
     }
+
+    public function getFeedback()
+    {
+        $query = "SELECT * FROM feedback";
+
+        $stmt = $this->connectDB()->prepare($query);
+
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: ./index.php?error=stmtfailed");
+            exit();
+        }
+
+        $result = $stmt->fetchAll();
+
+        return $result;
+    }
+
 }
