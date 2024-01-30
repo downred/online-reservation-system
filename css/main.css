@@ -201,7 +201,6 @@ nav li {
     .mobile-links {
         display: none;
     }
-
 }
 
 @media screen and (max-width: 900px) {

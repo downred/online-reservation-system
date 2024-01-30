@@ -1,5 +1,14 @@
 @import "main.css";
 
+.hero-container {
+    position: relative;
+    height: 75vh;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
 .landing-img {
     height: 75vh;
     overflow: hidden;
@@ -28,12 +37,12 @@
     width: 100%;
 }
 
-.hero-content > h1 {
+.hero-content>h1 {
     font-size: 4em;
     text-shadow: -1px 4px 7px rgba(0, 0, 0, 0.6);
 }
 
-.hero-content > .btn-primary {
+.hero-content>.btn-primary {
     box-shadow: 10px 10px 38px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 10px 10px 38px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 10px 10px 38px 0px rgba(0, 0, 0, 0.75);
@@ -112,10 +121,10 @@ main section {
     height: 40px;
     text-align: center;
     line-height: 40px;
-    border:none;
+    border: none;
     font-size: 2rem;
     background-color: #fff;
-    z-index: 999;
+    z-index: 10;
 }
 
 .slide-btn:hover {
@@ -199,17 +208,21 @@ footer {
 }
 
 @media screen and (max-width: 1400px) {
-    .hero-content > h1 {
+    .hero-content>h1 {
         font-size: 3em;
     }
 
-    .hero-content > .btn-primary {
+    .hero-content>.btn-primary {
         font-size: 1.5em !important;
+    }
+
+    .landing-img img {
+        object-position: center 10px;
     }
 }
 
 @media screen and (max-width: 945px) {
-    .hero-content > h1 {
+    .hero-content>h1 {
         font-size: 2.5em;
     }
 
@@ -217,8 +230,29 @@ footer {
         object-position: center 0px;
     }
 
-    .hero-content > .btn-primary {
+    .hero-content>.btn-primary {
         font-size: 2em;
     }
 
+}
+
+@media screen and (max-width: 850px) {
+    .hero-content>h1 {
+        font-size: 2em;
+    }
+
+    .hero-container {
+        height: 50vh;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .hero-content>h1 {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .landing-img img {
+        object-position: center -110px;
+    }
 }

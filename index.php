@@ -28,7 +28,7 @@ $feedback = $rez_utils->getFeedback();
 <body>
     <header>
         <?php require_once(__DIR__ . '/nav-bar.php'); ?>
-        <div style="position: relative; height: 75vh">
+        <div class="hero-container">
             <div class="landing-img">
                 <img src="./images/landing.jpg" class="">
             </div>
