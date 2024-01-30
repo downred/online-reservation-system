@@ -81,6 +81,7 @@ main section {
 .slider-images-wrapper {
     max-width: 95%;
     overflow: auto;
+    scrollbar-width: none;
 }
 
 .slider-images-wrapper::-webkit-scrollbar {
