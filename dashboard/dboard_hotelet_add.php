@@ -6,14 +6,13 @@ if (isset($_POST["submit"])) {
     $pershkrimi = $_POST["pershkrimi"];
     $cmimi = $_POST["cmimi"];
     $rating = $_POST["rating"];
-    $photo_path = "TESTTEST";
-
+    $image = $_FILES["image"];
+    include "hotel_image_processor.php";
     include "../dbconnect.php";
     include "db_utils.php";
-    // include "kontakt_contr.php";
-
+    
     $db_utils = new DBUtils();
-    $db_utils->addHoteli($emri, $adresa, $pershkrimi, $cmimi, $rating, $photo_path);
+    $db_utils->addHoteli($emri, $adresa, $pershkrimi, $cmimi, $rating, "testtest");
 }
 
 
@@ -40,7 +39,7 @@ if (isset($_POST["submit"])) {
             <?php require_once(__DIR__ . '/navbar.php') ?>
         </div>
         <section class="content-container">
-            <form action="" method="post">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <div class="contact-container" style="padding: 1rem">
                     <input placeholder="Emri" type="text" id="emri" name="emri" class="contact-input">
 
@@ -52,7 +51,7 @@ if (isset($_POST["submit"])) {
 
                     <input placeholder="rating" type="rating" id="rating" name="rating" class="contact-input">
 
-                    <input placeholder="photo_path" type="file" id="photo_path" name="photo_path" class="contact-input">
+                    <input placeholder="image" type="file" id="image" name="image" class="contact-input">
 
                     <button class="btn-light" type="submit" name="submit">Regjistro holetlin</button>
                 </div>
