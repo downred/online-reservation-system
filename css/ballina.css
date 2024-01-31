@@ -70,7 +70,7 @@ main section {
 /*section 2*/
 #s2 {
     background-color: var(--color-accent);
-    height: 30vh;
+    height: auto;
 }
 
 /*section 3*/
@@ -108,7 +108,6 @@ main section {
 
 .slider img {
     border-radius: 20px;
-    width: 310px;
     height: 200px;
 }
 
@@ -149,8 +148,9 @@ main section {
 .person-info-container {
     display: flex;
     flex-direction: row;
-    width: 32%;
-    justify-content: center;
+    flex: 1;
+    min-width: 396px;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
 }
@@ -175,6 +175,9 @@ footer {
 .additional-info {
     padding-top: 2rem;
     line-height: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .contacts-wrapper {
@@ -254,5 +257,61 @@ footer {
 
     .landing-img img {
         object-position: center -110px;
+    }
+
+    footer {
+        height: auto;
+    }
+
+    .contacts-wrapper {
+        padding: 2rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .logo-wrapper {
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .logo-container {
+        justify-content: center;
+    }
+
+    .additional-info {
+        text-align: center;
+    }
+
+    .copyright {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 536px) {
+    .person-info-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        min-width: 300px;
+    }
+
+    .person-name {
+        position: relative;
+        width: 100%;
+        text-align: center;
+    }
+
+    .person-info p {
+        text-align: center;
+    }
+
+    .slider img {
+            height: 150px;
+    }
+}
+
+@media screen and (max-height: 740px) and (max-width: 536px) {
+    nav a {
+        font-size: 2rem;
     }
 }
