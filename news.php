@@ -81,6 +81,8 @@ $other_titles = array_values(array_filter($result, function ($item) use ($other_
             </section>
         </div>
     </main>
+        <?php require_once(__DIR__ . '/footer.php'); ?>
+
 </body>
 
 </html>

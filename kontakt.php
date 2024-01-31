@@ -18,7 +18,7 @@ if (isset($_POST["submit"])) {
 
 ?>
 <html lang="en">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -30,12 +30,12 @@ if (isset($_POST["submit"])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    
+
 </head>
 
 <body>
     <header>
-    <?php require_once(__DIR__ . '/nav-bar.php'); ?>
+        <?php require_once(__DIR__ . '/nav-bar.php'); ?>
     </header>
     <div class="wrapper">
         <section class="contact-image-container">
@@ -54,13 +54,17 @@ if (isset($_POST["submit"])) {
 
                     <input placeholder="Email" type="email" id="email" name="email" class="contact-input">
 
-                    <textarea placeholder="Mesazhi juaj" id="message" name="message" class="contact-textarea"></textarea>
+                    <textarea placeholder="Mesazhi juaj" id="message" name="message"
+                        class="contact-textarea"></textarea>
 
                     <button class="btn-light" type="submit" name="submit">Dergo mesazhin</button>
                 </div>
             </form>
         </section>
     </div>
+
+    <?php require_once(__DIR__ . '/footer.php'); ?>
+
 </body>
 
 </html>
