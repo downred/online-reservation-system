@@ -176,23 +176,81 @@ class DBUtils extends dbConnect
 
         $stmt = null;
     }
-    public function addHoteli($emri, $adresa, $pershkrimi, $cmimi, $rating, $photo_path)
+    public function addHoteli($emri, $adresa, $pershkrimi, $cmimi, $rating)
     {
         // $targetDir = "./images/uploads/";
         // $targetFile = $targetDir . basename($_FILES["image"]["name"]);
         // move_uploaded_file($_FILES["image"]["tmp_name"], "." . $targetFile);
 
 
-        $query = "INSERT INTO hoteli(emri, adresa, pershkrimi, cmimi_per_nate, rating, photo_path) VALUES (?,?,?,?,?,?);";
+        $query = "INSERT INTO hoteli(emri, adresa, pershkrimi, cmimi_per_nate, rating) VALUES (?,?,?,?,?);";
         $stmt = $this->connectDB()->prepare($query);
 
-        if (!$stmt->execute(array($emri, $adresa, $pershkrimi, $cmimi, $rating, $photo_path))) {
+        if (!$stmt->execute(array($emri, $adresa, $pershkrimi, $cmimi, $rating))) {
             $stmt = null;
             header("location: dboard_hotelet_add.php?error=stmtfailed");
             exit();
         }
 
         header("location: dboard_hotelet_add.php");
+
+        $stmt = null;
+    }
+
+    public function getHotelet()
+    {
+        $query = "SELECT * FROM hoteli";
+
+        $stmt = $this->connectDB()->prepare($query);
+
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: ./rezervo.php?error=stmtfailed");
+            exit();
+        }
+
+        $result = $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function getHotelById($id)
+    {
+        $query = "SELECT * FROM hoteli where hoteli_id  = $id";
+
+        $stmt = $this->connectDB()->prepare($query);
+
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: ./dboard_manage_hotel.php?error=stmtfailed");
+            exit();
+        }
+
+        $result = $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function updateHotel($emri, $adresa, $pershkrimi, $cmimi, $rating, $id)
+    {
+        $query = "UPDATE hoteli SET emri=?, adresa=?, pershkrimi=?, cmimi_per_nate=?, rating=? WHERE hoteli_id =?";
+
+        $stmt = $this->connectDB()->prepare($query);
+
+        
+        if (!$stmt->execute(array($emri, $adresa, $pershkrimi, $cmimi, $rating, $id))) {
+            $stmt = null;
+            header("location: dboard_manage_hotel.php?error=stmtfailed");
+            exit();
+        }
+        $rowsAffected = $stmt->rowCount();
+        $stmt = null;
+    
+        if ($rowsAffected === 0) {
+            header("location: dboard_manage_hotel.php?error=hotelnotfound");
+            exit();
+        }
+        header("location: dboard_manage_hotel.php?update=successful");
 
         $stmt = null;
     }
