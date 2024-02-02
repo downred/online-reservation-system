@@ -30,6 +30,7 @@
                 <li><a href="dboard_news.php">Te rejat</a></li>
                 <li><a href="../logout.php">Çkyçu</a></li>
             </ul>
+            <button class="open-navbar-btn"> < </button>
         </div>
     </div>
 </body>

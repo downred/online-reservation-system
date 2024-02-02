@@ -31,6 +31,7 @@
 
 .links {
     flex:6.5;
+    position: relative;
 }
 
 .links ul {
@@ -54,6 +55,27 @@
 
 .links a:hover {
     color: var(--color-secondary-lighter);
+}
+.open-navbar-btn {
+    cursor: pointer;
+    position: absolute;
+    height: min-content;
+    border-radius: 60%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border: none;
+    font-size: 2rem;
+    background-color: #000;
+    z-index: 10;
+    color: #fff;
+    left: 230px;
+}
+
+.open-navbar-btn:hover {
+    background-color: #eeeeee;
+    color: #000;
 }
 
 
