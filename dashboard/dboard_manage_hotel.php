@@ -2,9 +2,10 @@
 <?php
 include "../dbconnect.php";
 include "db_utils.php";
-// include "hotel_image_processor.php";
+include "hotel_image_processor.php";
 
 $db_utils = new DBUtils();
+$IMGProcessor = new IMGProcessor();
 
 session_start();
 
@@ -22,7 +23,7 @@ if ($_SESSION["is_admin"] == 1) {
             $id = $_GET["id"];
             
             if(isset($_FILES['$image'])){
-                include "hotel_image_processor.php";
+                $IMGProcessor->saveIMG($emri);
             } else {
                 $result = $db_utils->getHotelById($id);
 
@@ -52,10 +53,10 @@ if ($_SESSION["is_admin"] == 1) {
             }
 
 
-            include "hotel_image_processor.php";
+            $IMGProcessor->saveIMG($emri);
             $db_utils->updateHotel($emri, $adresa, $pershkrimi, $cmimi, $rating, $id);
         } else {
-            include "hotel_image_processor.php";
+            $IMGProcessor->saveIMG($emri);
             $db_utils->addHoteli($emri, $adresa, $pershkrimi, $cmimi, $rating);
         }
     } else {

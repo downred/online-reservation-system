@@ -1,4 +1,9 @@
 <?php
+
+class IMGProcessor
+{
+    public function saveIMG($emri)
+    {
         $image = $_FILES['image'];
     
         $imgName = $_FILES['image']['name'];
@@ -6,7 +11,7 @@
         $imgSize = $_FILES['image']['size'];
         $imgError = $_FILES['image']['error'];
         $imgType = $_FILES['image']['type'];
-        
+
         $fileExt = explode('.', $imgName);
         $actualFileExt = strtolower(end($fileExt));
 
@@ -28,3 +33,5 @@
         } else {
             echo"You can't upload a file of that type!";
         }
+    }
+}
