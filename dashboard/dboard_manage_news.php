@@ -99,7 +99,7 @@ if ($_SESSION["is_admin"] == 1) {
                         <?php endif; ?>
                     </div>
                     <div class="form-row">
-                        <button class="btn-primary w-100" type="submit" name="submit">Submit</button>
+                        <button class="btn-light w-100" type="submit" name="submit">Submit</button>
                     </div>
                 </div>
             </form>
