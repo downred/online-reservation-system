@@ -148,7 +148,6 @@ class DBUtils extends dbConnect
         $targetDir = "./images/uploads/";
         $targetFile = $targetDir . basename($_FILES["image"]["name"]);
         move_uploaded_file($_FILES["image"]["tmp_name"], "." . $targetFile);
-        $test = $_FILES["image"]["name"];
 
         if ($_FILES["image"]["name"] == "") {
             $query = "UPDATE te_rejat SET titulli=?, detajet=?, lloji_i_lajmit=? WHERE te_rejat_id=?";
