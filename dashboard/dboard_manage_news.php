@@ -36,6 +36,7 @@ if ($_SESSION["is_admin"] == 1) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/dashboard/dboard-main.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/dashboard/dboard-news.css">
     <title>
         <?php
         if (isset($result)) {
@@ -52,7 +53,7 @@ if ($_SESSION["is_admin"] == 1) {
         <div class="navbar-container">
             <?php require_once(__DIR__ . '/navbar.php') ?>
         </div>
-        <div class="content-container">
+        <div class="content-container" style="width: auto">
             <div class="header">
                 <h1>
                     <?php
@@ -80,17 +81,17 @@ if ($_SESSION["is_admin"] == 1) {
                     <div class="form-row">
                         <label for="details">Detajet</label>
                         <textarea type="text" name="details" id="details"
-                            class="input"><?php echo isset($result[0]["detajet"]) ? $result[0]["detajet"] : '' ?></textarea>
+                            class="input detajet"><?php echo isset($result[0]["detajet"]) ? $result[0]["detajet"] : '' ?></textarea>
                     </div>
                     <div class="form-row">
                         <label for="news_type">Lloji i lajmit</label>
-                        <select id="news_type" name="news_type">
+                        <select id="news_type" name="news_type" class="input">
                             <option value="Titull kryesor" <?php echo (isset($result[0]["lloji_i_lajmit"]) && $result[0]["lloji_i_lajmit"] == 'Titull kryesor') ? 'selected' : ''; ?>>Titull kryesor
                             </option>
                             <option value="Te rejat" <?php echo (isset($result[0]["lloji_i_lajmit"]) && $result[0]["lloji_i_lajmit"] == 'Te rejat') ? 'selected' : ''; ?>>Te rejat</option>
                         </select>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row upload-img">
                         <label for="image">Imazhi</label>
                         <input type="file" name="image" id="image">
                         <?php if (isset($result[0]["photo_path"])): ?>
@@ -98,7 +99,7 @@ if ($_SESSION["is_admin"] == 1) {
                         <?php endif; ?>
                     </div>
                     <div class="form-row">
-                        <button type="submit" name="submit">Submit</button>
+                        <button class="btn-primary w-100" type="submit" name="submit">Submit</button>
                     </div>
                 </div>
             </form>

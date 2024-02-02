@@ -1,0 +1,19 @@
+.form-container {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.upload-img {
+    gap: 20px;
+}
+
+.detajet {
+    height: 400px !important;
+    resize: none;
+}
