@@ -6,7 +6,7 @@
         $imgSize = $_FILES['image']['size'];
         $imgError = $_FILES['image']['error'];
         $imgType = $_FILES['image']['type'];
-        // print_r($image);
+        
         $fileExt = explode('.', $imgName);
         $actualFileExt = strtolower(end($fileExt));
 

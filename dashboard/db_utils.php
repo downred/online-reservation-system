@@ -178,10 +178,6 @@ class DBUtils extends dbConnect
     }
     public function addHoteli($emri, $adresa, $pershkrimi, $cmimi, $rating)
     {
-        // $targetDir = "./images/uploads/";
-        // $targetFile = $targetDir . basename($_FILES["image"]["name"]);
-        // move_uploaded_file($_FILES["image"]["tmp_name"], "." . $targetFile);
-
 
         $query = "INSERT INTO hoteli(emri, adresa, pershkrimi, cmimi_per_nate, rating) VALUES (?,?,?,?,?);";
         $stmt = $this->connectDB()->prepare($query);
@@ -233,25 +229,40 @@ class DBUtils extends dbConnect
 
     public function updateHotel($emri, $adresa, $pershkrimi, $cmimi, $rating, $id)
     {
-        $query = "UPDATE hoteli SET emri=?, adresa=?, pershkrimi=?, cmimi_per_nate=?, rating=? WHERE hoteli_id =?";
+        $query = "UPDATE hoteli SET emri=?, adresa=?, pershkrimi=?, cmimi_per_nate=?, rating=? WHERE hoteli_id =?;";
 
         $stmt = $this->connectDB()->prepare($query);
 
         
         if (!$stmt->execute(array($emri, $adresa, $pershkrimi, $cmimi, $rating, $id))) {
             $stmt = null;
-            header("location: dboard_manage_hotel.php?error=stmtfailed");
+            header("location: dboard_hotelet_add.php?error=stmtfailed");
             exit();
         }
         $rowsAffected = $stmt->rowCount();
         $stmt = null;
     
         if ($rowsAffected === 0) {
-            header("location: dboard_manage_hotel.php?error=hotelnotfound");
+            header("location: dboard_hotelet_add.php?error=hotelnotfound");
             exit();
         }
-        header("location: dboard_manage_hotel.php?update=successful");
+        header("location: dboard_hotelet_add.php?update=successful");
 
+        $stmt = null;
+    }
+    public function deleteHotel($hoteli_id)
+    {
+        $query = "DELETE FROM hoteli WHERE hoteli_id = ?";
+        $stmt = $this->connectDB()->prepare($query);
+
+        $stmt->bindParam(1, $hoteli_id, PDO::PARAM_INT);
+
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: dboard_hotelet_add.php?error=stmtfailed");
+            exit();
+        }
+        header("location: dboard_hotelet_add.php?deleteSuccessful=true");   
         $stmt = null;
     }
 }
