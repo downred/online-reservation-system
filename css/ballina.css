@@ -60,7 +60,7 @@ main section {
 /*section 1*/
 #s1 {
     background-color: var(--color-light);
-    height: 35vh;
+    height: auto;
 }
 
 #s1 h3 {

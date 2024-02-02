@@ -1,18 +1,19 @@
-.main-title-img{
+.main-title-img {
     width: 500px;
     height: 400px;
-    flex:1;
+    min-width: 420px;
+    flex: 1;
     border-radius: 30px;
     overflow: hidden;
 }
 
 
 .main-title-wrapper:hover img {
-    height: 550px;
+    height: 600px;
 }
 
 .main-title-img img {
-    height: 500px;
+    height: 550px;
     transition: all 2s;
 }
 
@@ -20,8 +21,9 @@
     display: flex;
     gap: 20px;
     cursor: pointer;
+    flex-wrap: wrap;
     transition: all 1s;
-} 
+}
 
 .main-title-wrapper:hover {
     opacity: .60;
@@ -34,6 +36,7 @@
 .main-title-details {
     width: 100%;
     display: flex;
+    min-width: 340px;
     gap: 20px;
     justify-content: center;
     flex-direction: column;
@@ -62,7 +65,7 @@
 .article-img img {
     width: 500px;
     height: 250px;
-        transition: all 1s;
+    transition: all 1s;
 }
 
 .article-img-border {
@@ -88,18 +91,86 @@
 }
 
 .latest-wrapper {
-    display: flex;
+    display: grid;
     flex-direction: column;
     gap: 20px;
 }
 
 .latest-articles {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content: space-between;
     gap: 30px;
 }
 
 section {
     width: 80vw;
+}
+
+@media screen and (max-width: 610px) {
+    .main-title-img {
+        max-width: auto;
+        min-width: 300px;
+    }
+
+    .main-title-img img {
+        height: 400px;
+    }
+
+    .main-title-wrapper h1 {
+        font-size: 2rem;
+    }
+
+    .main-title-details {
+        max-width: auto;
+        min-width: 200px;
+    }
+}
+
+@media screen and (max-width: 1860px) {
+    .latest-articles {
+        grid-template-columns: repeat(4, auto);
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 1450px) {
+    .latest-articles {
+        grid-template-columns: repeat(3, auto);
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 1130px) {
+    .latest-articles {
+        grid-template-columns: repeat(2, auto);
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .latest-articles {
+        grid-template-columns: minmax(200px, auto);
+        min-width: 200px;
+        gap: 20px;
+    }
+
+    .article {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .article-img {
+        width: 100%;
+    }
+
+    .article-img img {
+        width: 550px;
+        height: 300px;
+    }
+
+    .article:hover img {
+        width: 560px;
+        height: 310px
+    }
 }
