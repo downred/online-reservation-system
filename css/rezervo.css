@@ -98,7 +98,7 @@
 /* POP UP FORM */
 
 .form-popup{
-    visibility: hidden;
+    visibility: visible;
     opacity: 100%;
     position: fixed;
     top: 50%;

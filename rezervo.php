@@ -6,7 +6,32 @@ include "hotelet_db_utils.php";
 $rez_utils = new HoteliDbUtils();
 $result = $rez_utils->getHotelet();
 
-?>
+if(isset($_POST["ID"])){
+    $h_id = $_POST["ID"];
+}
+
+if (isset($_POST["submit"])) : ?>
+    <div class="form-popup" id="popup">
+        <h1>Enter the dates of your reservation</h1>
+        <form action="" method="post">
+            <div class="form-container">
+                <div class="date-holder">
+                    <?php echo $_POST["ID"];?>
+                    <p>Nga: <input type="date" id="StartDate" name="StartDate"></p>
+                    <p>Deri: <input type="date" id="EndDate" name="EndDate"></p>
+                </div>
+                <p style="visibility: hidden;" id="error-msg"></p>
+                <div class="button-holder">
+                    <button class="cancel" >Anulo</button>
+                    <button class="rezervo-btn" type="submit" name="submit">Rezervo</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <?php endif; ?>
+
+
 
 
 <!DOCTYPE html>
@@ -29,7 +54,7 @@ $result = $rez_utils->getHotelet();
 <body>
     <?php require_once(__DIR__ . '/nav-bar.php'); ?>
     
-    <div class="form-popup" id="popup">
+    <!-- <div class="form-popup" id="popup">
         <h1>Enter the dates of your reservation</h1>
         <form action="">
             <div class="form-container">
@@ -39,12 +64,12 @@ $result = $rez_utils->getHotelet();
                 </div>
                 <p style="visibility: hidden;" id="error-msg"></p>
                 <div class="button-holder">
-                    <button class="cancel" onclick="CloseForm()">Anulo</button>
-                    <button class="rezervo-btn" onclick="SubmitFrom()">Rezervo</button>
+                    <button class="cancel" >Anulo</button>
+                    <button class="rezervo-btn" >Rezervo</button>
                 </div>
             </div>
         </form>
-    </div>
+    </div> -->
 
     <hr>
 
@@ -74,7 +99,10 @@ $result = $rez_utils->getHotelet();
                                 <h4>
                                     <?php echo htmlspecialchars($Hotel["cmimi_per_nate"]) ?>/Night
                                 </h4>
-                                <button class="rezervo-btn" onclick="DisplayForm()">Rezervo</button>
+                                <form action="" method="post">
+                                    <input type="hidden" value = <?php echo htmlspecialchars($Hotel["hoteli_id"]) ?> name="ID">
+                                    <button class="rezervo-btn" onclick="DisplayForm()" type="submit" name="submit">Rezervo</button>
+                                </form>
                             </div>
                             <div class="desc">
                                 <p>
@@ -89,7 +117,7 @@ $result = $rez_utils->getHotelet();
     <?php endif; ?>
 
     </div>
-    <script src="./js/rezervo.js"></script>
+    <!-- <script src="./js/rezervo.js"></script> -->
 </body>
 <?php require_once(__DIR__ . '/footer.php'); ?>
 
