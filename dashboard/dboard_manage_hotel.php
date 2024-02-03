@@ -2,16 +2,13 @@
 <?php
 include "../dbconnect.php";
 include "db_utils.php";
-include "hotel_image_processor.php";
 
 $db_utils = new DBUtils();
-$IMGProcessor = new IMGProcessor();
 
 session_start();
 
 if ($_SESSION["is_admin"] == 1) {
     if (isset($_POST["submit"])) {
-
         $emri = $_POST["emri"];
         $adresa = $_POST["adresa"];
         $pershkrimi = $_POST["pershkrimi"];
@@ -20,61 +17,21 @@ if ($_SESSION["is_admin"] == 1) {
         $image = $_FILES["image"];
         $admin_id = $_SESSION["userid"];
 
-        if (isset($_GET["id"])) {
-            $id = $_GET["id"];
-
-            if (isset($_FILES['$image'])) {
-                $IMGProcessor->saveIMG($emri);
-            } else {
-                $result = $db_utils->getHotelById($id);
-
-                $name = trim($result[0]["emri"]);
-                $finalEmri = "../images/uploads/Hotel_{$name}.jpg";
-
-                $currentName = $result[0]["emri"];
-
-                $oldFileName = "{$currentName}.jpg";
-                $newFileName = $_POST["emri"];
-                $newFileName2 = "{$newFileName}.jpg";
-
-                $directory = '../images/uploads/Hotel_';
-
-                $oldFilePath = $directory . $oldFileName;
-                $newFilePath = $directory . $newFileName . ".jpg";
-
-                if (file_exists($oldFilePath)) {
-                    if (rename($oldFilePath, $newFilePath)) {
-                        echo 'Image name changed successfully.';
-                    } else {
-                        echo 'Error changing image name.';
-                    }
-                } else {
-                    echo 'Image does not exist.';
-                }
-            }
-
-
-            $IMGProcessor->saveIMG($emri);
+        if (isset($_POST["id"])) {
+            $id = $_POST["id"];
             $db_utils->updateHotel($emri, $adresa, $pershkrimi, $cmimi, $rating, $admin_id, $id);
         } else {
-            $IMGProcessor->saveIMG($emri);
             $db_utils->addHoteli($emri, $adresa, $pershkrimi, $cmimi, $admin_id, $rating);
         }
     } else {
         if (isset($_GET["id"])) {
             $id = $_GET["id"];
             $result = $db_utils->getHotelById($id);
-
-            $name = trim($result[0]["emri"]);
-            $finalEmri = "../images/uploads/Hotel_{$name}.jpg";
-
-            $currentName = $result[0]["emri"];
         }
     }
 } else {
     header("location: ../index.php");
 }
-
 ?>
 
 <html lang="en">
@@ -109,9 +66,7 @@ if ($_SESSION["is_admin"] == 1) {
                     <div class="card-animation">
                         <div class="hotel-card">
                             <div class="hotel-img">
-                                <img src="<?php
-
-                                echo $finalEmri; ?>" alt="">
+                                <img width="200px" src="<?php echo "." . $result[0]["photo_path"]; ?>" alt="Current Image">
                             </div>
                             <div class="main-info">
                                 <div class="rating-addres">
@@ -175,8 +130,10 @@ if ($_SESSION["is_admin"] == 1) {
                     </div>
 
                     <div class="form-row">
-                        <input placeholder="image" value="<?php echo "yes"; ?>" type="file" id="image" name="image"
-                            class="contact-input">
+                        <input type="file" name="image" id="image">
+                        <?php if (isset($result[0]["photo_path"])): ?>
+                            <img width="200px" src="<?php echo "." . $result[0]["photo_path"]; ?>" alt="Current Image">
+                        <?php endif; ?>
                     </div>
 
                     <div class="form-row"><button class="btn-light w-100" type="submit" name="submit">Shto

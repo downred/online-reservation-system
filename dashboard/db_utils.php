@@ -177,13 +177,19 @@ class DBUtils extends dbConnect
 
         $stmt = null;
     }
-    public function addHoteli($emri, $adresa, $pershkrimi, $cmimi,$admin_id, $rating)
+    public function addHoteli($emri, $adresa, $pershkrimi, $cmimi, $admin_id, $rating)
     {
+        
+        
+        $targetDir = "./images/uploads/";
+        $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+        move_uploaded_file($_FILES["image"]["tmp_name"], "." . $targetFile);
 
-        $query = "INSERT INTO hoteli(emri, adresa, pershkrimi, cmimi_per_nate, rating, perdoruesi_id) VALUES (?,?,?,?,?,?);";
+
+        $query = "INSERT INTO hoteli(emri, adresa, pershkrimi, cmimi_per_nate, rating, photo_path, perdoruesi_id) VALUES (?,?,?,?,?,?,?);";
         $stmt = $this->connectDB()->prepare($query);
 
-        if (!$stmt->execute(array($emri, $adresa, $pershkrimi, $cmimi, $rating, $admin_id))) {
+        if (!$stmt->execute(array($emri, $adresa, $pershkrimi, $cmimi, $rating, $targetFile, $admin_id))) {
             $stmt = null;
             header("location: dboard_hotelet_add.php?error=stmtfailed");
             exit();
@@ -192,6 +198,8 @@ class DBUtils extends dbConnect
         header("location: dboard_hotelet_add.php");
 
         $stmt = null;
+
+
     }
 
     public function getHotelet()
@@ -232,27 +240,39 @@ class DBUtils extends dbConnect
 
     public function updateHotel($emri, $adresa, $pershkrimi, $cmimi, $rating, $admin_id, $id)
     {
-        $query = "UPDATE hoteli SET emri=?, adresa=?, pershkrimi=?, cmimi_per_nate=?, rating=?, perdoruesi_id=? WHERE hoteli_id =?;";
+        $targetDir = "./images/uploads/";
+        $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+        move_uploaded_file($_FILES["image"]["tmp_name"], "." . $targetFile);
+
+        if ($_FILES["image"]["name"] == "") {
+            $query = "UPDATE hoteli SET emri=?, adresa=?, pershkrimi=?, cmimi_per_nate=?, rating=?, perdoruesi_id=? WHERE hoteli_id =?;";
+
+        } else {
+            $query = "UPDATE hoteli SET emri=?, adresa=?, pershkrimi=?, cmimi_per_nate=?, rating=?, photo_path=?, perdoruesi_id=? WHERE hoteli_id =?;";
+
+        }
 
         $stmt = $this->connectDB()->prepare($query);
 
-
-        if (!$stmt->execute(array($emri, $adresa, $pershkrimi, $cmimi, $rating, $admin_id, $id))) {
-            $stmt = null;
-            header("location: dboard_hotelet_add.php?error=stmtfailed");
-            exit();
+        if ($_FILES["image"]["name"] == "") {
+            if (!$stmt->execute(array($emri, $adresa, $pershkrimi, $cmimi, $rating, $admin_id, $id))) {
+                $stmt = null;
+                header("location: dboard_hotelet_add.php?error=stmtfailed");
+                exit();
+            }
+        } else {
+            if (!$stmt->execute(array($emri, $adresa, $pershkrimi, $cmimi, $rating, $targetFile, $admin_id, $id))) { //file
+                $stmt = null;
+                header("location: dboard_hotelet_add.php?error=stmtfailed");
+                exit();
+            }
         }
-        $rowsAffected = $stmt->rowCount();
-        $stmt = null;
 
-        if ($rowsAffected === 0) {
-            header("location: dboard_hotelet_add.php?error=hotelnotfound");
-            exit();
-        }
-        header("location: dboard_hotelet_add.php?update=successful");
+        header("location: dboard_hotelet_add.php.php");
 
         $stmt = null;
     }
+
     public function deleteHotel($hoteli_id)
     {
         $query = "DELETE FROM hoteli WHERE hoteli_id = ?";

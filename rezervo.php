@@ -45,35 +45,37 @@ if(isset($_POST["ID"])){
 
 <body>
     <?php require_once(__DIR__ . '/nav-bar.php'); ?>
-    
-    <!-- <div class="form-popup" id="popup">
+
+    <div id="popup" class="form-popup-wrapper">
+    <div class="form-popup-backdrop" onclick="CloseForm()"></div>
+    <div class="form-popup" >
         <h1>Enter the dates of your reservation</h1>
         <form action="">
             <div class="form-container">
                 <div class="date-holder">
-                    <p>Nga: <input type="date" id="StartDate"></p>
-                    <p>Deri: <input type="date" id="EndDate"></p>
+                    <p>Nga: <input type="date" id="StartDate" name="StartDate"></p>
+                    <p>Deri: <input type="date" id="EndDate" name="EndDate"></p>
+                    <input type="hidden" id="hotelId"  name="ID"/>
                 </div>
                 <p style="visibility: hidden;" id="error-msg"></p>
                 <div class="button-holder">
-                    <button class="cancel" >Anulo</button>
+                    <div class="cancel" onclick="CloseForm()">Anulo</div>
                     <button class="rezervo-btn" >Rezervo</button>
                 </div>
             </div>
         </form>
-    </div> -->
+        </div>
+    </div>
 
     <hr>
 
     <?php if (!empty($result)): ?>
-        <?php foreach ($result as $Hotel):
-            $name = $Hotel["emri"];
-            $finalEmri = "./images/uploads/Hotel_{$name}.jpg" ?>
+        <?php foreach ($result as $Hotel):?>
             <div class="hotel-card-container">
                 <div class="card-animation">
                     <div class="hotel-card">
                         <div class="hotel-img">
-                            <img src="<?php echo $finalEmri; ?>" alt="">
+                        <img width="200px" src="<?php echo "" . $result[0]["photo_path"]; ?>" alt="Current Image">
                         </div>
                         <div class="main-info">
                             <div class="rating-addres">
@@ -90,11 +92,11 @@ if(isset($_POST["ID"])){
                             <div class="reserve">
                                 <h4>
                                     <?php echo htmlspecialchars($Hotel["cmimi_per_nate"]) ?>/Night
+                                    
                                 </h4>
-                                <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-                                    <input type="hidden" value = <?php echo htmlspecialchars($Hotel["hoteli_id"]) ?> name="ID">
-                                    <button class="rezervo-btn" onclick="DisplayForm()" type="submit" name="submit">Rezervo</button>
-                                </form>
+                                
+                                    <button class="rezervo-btn" onclick="DisplayForm(<?php echo ($Hotel["hoteli_id"]) ?>)">Rezervo</button>
+                                
                             </div>
                             <div class="desc">
                                 <p>
@@ -109,7 +111,7 @@ if(isset($_POST["ID"])){
     <?php endif; ?>
 
     </div>
-    <!-- <script src="./js/rezervo.js"></script> -->
+    <script src="./js/rezervo.js"></script>
 </body>
 <?php require_once(__DIR__ . '/footer.php'); ?>
 

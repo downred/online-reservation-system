@@ -39,14 +39,12 @@ if ($_SESSION["is_admin"] == 1) {
         </div>
         <section class="content-container">
             <?php if (!empty($result)): ?>
-                <?php foreach ($result as $Hotel):
-                    $name = $Hotel["emri"];
-                    $finalEmri = "../images/uploads/Hotel_{$name}.jpg" ?>
+                <?php foreach ($result as $Hotel):?>
                     <div class="hotel-card-container">
                         <div class="card-animation">
                             <div class="hotel-card">
                                 <div class="hotel-img">
-                                    <img src="<?php echo $finalEmri; ?>" alt="">
+                                <img width="200px" src="<?php echo "." . $result[0]["photo_path"]; ?>" alt="Current Image">
                                 </div>
                                 <div class="main-info">
                                     <div class="rating-addres">

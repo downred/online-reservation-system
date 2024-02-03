@@ -1,7 +1,11 @@
-function DisplayForm(){
+function DisplayForm(id){
+    document.getElementById('hotelId').value = id
+    const popup = document.getElementById("popup")
     popup.classList.add("popup-show");
 }
 function CloseForm(){
+    const popup = document.getElementById("popup")
+    document.getElementById('hotelId').value = null
     popup.classList.remove("popup-show");
 }
 function SubmitFrom(){
