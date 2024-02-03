@@ -36,7 +36,12 @@ $feedback = $rez_utils->getFeedback();
                 <h1>
                     Zbulo aventurën tënde, rezervo një ëndërr.
                 </h1>
-                <a class="btn-primary" href="rezervo.html">Rezervo tani</a>
+                <?php if (isset($_SESSION["userid"])): ?>
+                    <a class="btn-primary" href="rezervo.php">Rezervo tani</a>
+                <?php else: ?>
+                    <a class="btn-primary" href="login.php">Rezervo tani</a>
+                <?php endif; ?>
+
             </div>
         </div>
     </header>

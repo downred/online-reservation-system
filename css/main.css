@@ -160,6 +160,7 @@ nav li {
 /* admin sidebar container */
 .navbar-container {
     height: 100%;
+    z-index: 10;
     position: fixed;
 }
 

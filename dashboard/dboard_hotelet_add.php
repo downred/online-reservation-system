@@ -79,10 +79,6 @@ if ($_SESSION["is_admin"] == 1) {
                                         href="dboard_manage_hotel.php?id=<?php echo $Hotel['hoteli_id']; ?>">
                                         <i class="far fa-edit fa-2x"></i>
                                     </a>
-                                    <a style="padding-top: 25px;"
-                                        href="dboard_delete_hotel.php?id=<?php echo $Hotel['hoteli_id']; ?>">
-                                        <i class="fas fa-trash-alt fa-2x"></i>
-                                    </a>
                                 </div>
                             </div>
                         </div>

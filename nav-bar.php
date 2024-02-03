@@ -19,7 +19,12 @@
                     <div><a href="index.php">Ballina</a></div>
                 </li>
                 <li>
-                    <div><a href="rezervo.php">Hotelet</a></div>
+                    <?php if (isset($_SESSION["userid"])): ?>
+                        <div><a href="rezervo.php">Hotelet</a></div>
+                    <?php else: ?>
+                        <div><a href="login.php">Hotelet</a></div>
+                    <?php endif; ?>
+
                 </li>
                 <li>
                     <div><a href="rreth-nesh.php">Rreth nesh</a></div>

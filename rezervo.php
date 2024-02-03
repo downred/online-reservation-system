@@ -2,6 +2,7 @@
 include "./dbconnect.php";
 include "./hotelet_db_utils.php";
 include "./dashboard/db_utils.php";
+error_reporting(E_ALL & ~E_NOTICE);
 
 session_start();
 
