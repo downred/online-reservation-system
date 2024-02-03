@@ -4,7 +4,6 @@ let body = document.getElementsByTagName('body')[0]
 
 hamburger.onclick = function (e) {
     e.preventDefault();
-    console.log(body)
 
   let containerDisplay = window
     .getComputedStyle(hamburgerContainer)
