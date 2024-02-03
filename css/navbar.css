@@ -1,12 +1,12 @@
 @import "main.css";
 
 .navbar-wrapper {
-    width:  250px;
+    width: 250px;
     height: 100%;
     background-color: var(--color-light);
     display: flex;
     flex-direction: column;
-    z-index: 1;
+    z-index: 10;
     top: 0;
     left: 0;
     transition: 0.5s;
@@ -36,10 +36,8 @@
 }
 
 .links {
-    flex:6.5;
+    flex: 6.5;
     transition: 0.5s;
-    /* position: relative; */
-
 }
 
 .links ul {
@@ -67,6 +65,7 @@
 .links a:hover {
     color: var(--color-secondary-lighter);
 }
+
 .open-navbar-btn {
     cursor: pointer;
     position: absolute;
@@ -91,10 +90,71 @@
 }
 
 
-html, body {
+html,
+body {
     height: 100%;
-    
+
 }
+
 .flipped {
     transform: rotate(180deg);
-  }
+}
+
+/* mobile */
+.mobile-dboard-navbar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: bisque;
+    height: 10%;
+    z-index: 10;
+    align-items: space-between;
+    justify-content: space-around;
+}
+
+.mobile-dboard-navbar a {
+    text-decoration: none;
+    color: black;
+}
+
+.mobile-dboard-navbar > div {
+    height: 100%;
+    font-size: .75rem;
+}
+
+.mobile-dboard-icon img {
+    width: 30px;
+}
+
+.mobile-dboard-icon {
+    display: flex;
+    justify-content: center;
+}
+
+.mobile-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+@media screen and (max-width: 965px) {
+    .mobile-dboard-navbar {
+        display: flex;
+
+    }
+
+    .navbar-wrapper {
+        display: none;
+    }
+
+    .profile-img-container {
+        width: 30px;
+        margin: 0 0 0 0;
+    }
+
+    .profile-img-container img {
+        width: 30px;
+    }
+}

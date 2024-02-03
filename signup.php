@@ -87,7 +87,6 @@ if (isset($_POST["submit"])) {
             </form>
         </section>
     </div>
-    <script src="./js/signup.js"></script>
 </body>
 
 </html>
