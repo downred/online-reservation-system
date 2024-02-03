@@ -288,6 +288,22 @@ class DBUtils extends dbConnect
         header("location: dboard_hotelet_add.php?deleteSuccessful=true");
         $stmt = null;
     }
+    
+    public function rezervo($user_ID, $id, $StartDate, $EndDate)
+    {
 
+        $query = "INSERT INTO rezervimi (perdoruesi_id, hoteli_id, date_from, date_to) VALUES (?,?,?,?);";
+        $stmt = $this->connectDB()->prepare($query);
+
+        if (!$stmt->execute(array($user_ID, $id, $StartDate, $EndDate))) {
+            $stmt = null;
+            header("location: rezervo.php?error=stmtfailed");
+            exit();
+        }
+
+        header("location: rezervo.php?sendingSuccessful=true");
+
+        $stmt = null;
+    }
 
 }

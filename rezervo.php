@@ -1,26 +1,24 @@
 <?php
 include "./dbconnect.php";
 include "./hotelet_db_utils.php";
-include "./rezervo_form.php";
+include "./dashboard/db_utils.php";
 
+session_start();
 
 $rez_utils = new HoteliDbUtils();
 $result = $rez_utils->getHotelet();
 
-$rezervo_form = new rezervo_form();
 
+$db_utils = new DBUtils();
+$user_ID = $_SESSION['userid'];
 
-if(isset($_POST["ID"])){
-    $h_id = $_POST["ID"];
-    $rezervo_form -> rezervo_popUp($h_id);
-    
-    var_dump($rezervo_form);
-    var_dump($_POST['ID']);
+if(isset($_POST["submit"])){
+    $id = $_POST["ID"];
+    $StartDate = $_POST["StartDate"];
+    $EndDate = $_POST["EndDate"];
+
+    $db_utils->rezervo($user_ID, $id, $StartDate, $EndDate);
 }
-
-
-
-
 ?>
 
 
@@ -50,7 +48,7 @@ if(isset($_POST["ID"])){
     <div class="form-popup-backdrop" onclick="CloseForm()"></div>
     <div class="form-popup" >
         <h1>Enter the dates of your reservation</h1>
-        <form action="">
+        <form action="" method="post">
             <div class="form-container">
                 <div class="date-holder">
                     <p>Nga: <input type="date" id="StartDate" name="StartDate"></p>
@@ -60,7 +58,7 @@ if(isset($_POST["ID"])){
                 <p style="visibility: hidden;" id="error-msg"></p>
                 <div class="button-holder">
                     <div class="cancel" onclick="CloseForm()">Anulo</div>
-                    <button class="rezervo-btn" >Rezervo</button>
+                    <button class="rezervo-btn" type="submit" name="submit">Rezervo</button>
                 </div>
             </div>
         </form>
@@ -109,7 +107,6 @@ if(isset($_POST["ID"])){
             </div>
         <?php endforeach; ?>
     <?php endif; ?>
-
     </div>
     <script src="./js/rezervo.js"></script>
 </body>
