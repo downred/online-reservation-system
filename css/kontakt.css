@@ -75,10 +75,16 @@ textarea {
     font-weight: 300;
 }
 
-.btn-light {
+/* .btn-light {
     width: 100%;
-}
+    flex-shrink: 9;
+} */
 
 .no-bottom-margin {
     margin-bottom: 0 !important;
+}
+
+.contact-container .btn-light{
+    width: 100%;
+
 }
