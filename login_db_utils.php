@@ -56,6 +56,7 @@ class LoginDBUtils extends dbConnect
 
             $_SESSION["userid"] = $user[0]["perdoruesi_id"];
             $_SESSION["is_admin"] = $user[0]["is_admin"];
+            $_SESSION["username"] = $user[0]["emri"];
 
             if ($_SESSION["is_admin"] == 1) {
                 header("location: ./dashboard/dboard_rezervimet.php");

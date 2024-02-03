@@ -2,6 +2,7 @@
 include "./dbconnect.php";
 include "./hotelet_db_utils.php";
 include "./dashboard/db_utils.php";
+error_reporting(E_ALL & ~E_NOTICE);
 
 session_start();
 
@@ -38,6 +39,7 @@ if(isset($_POST["submit"])){
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
 </head>
 
 
@@ -73,7 +75,7 @@ if(isset($_POST["submit"])){
                 <div class="card-animation">
                     <div class="hotel-card">
                         <div class="hotel-img">
-                        <img width="200px" src="<?php echo "" . $result[0]["photo_path"]; ?>" alt="Current Image">
+                            <img src="<?php echo "" . $result[0]["photo_path"]; ?>" alt="Current Image">
                         </div>
                         <div class="main-info">
                             <div class="rating-addres">

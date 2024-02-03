@@ -35,7 +35,7 @@
                 </li>
             </div>
             <li class="nav-section-two">
-                <a class="btn-light m-2" href="login.php">Kyçu</a>
+                <a class="btn-light m-2" href="login.php"><?php echo $_SESSION["username"] ?></a>
                 <?php
                 if (isset($_SESSION["userid"])) {
                     echo '<a class="btn-light m-2" href="logout.php">Çkyçu</a>';
