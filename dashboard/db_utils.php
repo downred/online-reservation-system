@@ -25,7 +25,9 @@ class DBUtils extends dbConnect
 
     public function getTeRejat()
     {
-        $query = "SELECT * FROM te_rejat";
+        $query = "SELECT te_rejat.*, perdoruesi.* 
+          FROM te_rejat
+          JOIN perdoruesi ON te_rejat.perdoruesi_id = perdoruesi.perdoruesi_id";
 
         $stmt = $this->connectDB()->prepare($query);
 
@@ -57,17 +59,17 @@ class DBUtils extends dbConnect
         return $result;
     }
 
-    public function addArtikullin($title, $details, $type)
+    public function addArtikullin($title, $details, $type, $admin_id)
     {
         $targetDir = "./images/uploads/";
         $targetFile = $targetDir . basename($_FILES["image"]["name"]);
         move_uploaded_file($_FILES["image"]["tmp_name"], "." . $targetFile);
 
 
-        $query = "INSERT INTO te_rejat (titulli, detajet, lloji_i_lajmit, photo_path) VALUES (?,?,?,?);";
+        $query = "INSERT INTO te_rejat (titulli, detajet, lloji_i_lajmit, photo_path, perdoruesi_id) VALUES (?,?,?,?,?);";
         $stmt = $this->connectDB()->prepare($query);
 
-        if (!$stmt->execute(array($title, $details, $type, $targetFile))) {
+        if (!$stmt->execute(array($title, $details, $type, $targetFile, $admin_id))) {
             $stmt = null;
             header("location: dboard_manage_news.php?error=stmtfailed");
             exit();
@@ -143,28 +145,28 @@ class DBUtils extends dbConnect
         $stmt = null;
     }
 
-    public function updateArtikullin($id, $titulli, $detajet, $type)
+    public function updateArtikullin($id, $titulli, $detajet, $type, $admin_id)
     {
         $targetDir = "./images/uploads/";
         $targetFile = $targetDir . basename($_FILES["image"]["name"]);
         move_uploaded_file($_FILES["image"]["tmp_name"], "." . $targetFile);
 
         if ($_FILES["image"]["name"] == "") {
-            $query = "UPDATE te_rejat SET titulli=?, detajet=?, lloji_i_lajmit=? WHERE te_rejat_id=?";
+            $query = "UPDATE te_rejat SET titulli=?, detajet=?, lloji_i_lajmit=?, perdoruesi_id = ? WHERE te_rejat_id=?";
         } else {
-            $query = "UPDATE te_rejat SET titulli=?, detajet=?, lloji_i_lajmit=?, photo_path=? WHERE te_rejat_id=?";
+            $query = "UPDATE te_rejat SET titulli=?, detajet=?, lloji_i_lajmit=?, photo_path=?, perdoruesi_id=? WHERE te_rejat_id=?";
         }
 
         $stmt = $this->connectDB()->prepare($query);
 
         if ($_FILES["image"]["name"] == "") {
-            if (!$stmt->execute(array($titulli, $detajet, $type, $id))) {
+            if (!$stmt->execute(array($titulli, $detajet, $type, $admin_id, $id))) {
                 $stmt = null;
                 header("location: dboard_manage_news.php?error=stmtfailed");
                 exit();
             }
         } else {
-            if (!$stmt->execute(array($titulli, $detajet, $type, $targetFile, $id))) {
+            if (!$stmt->execute(array($titulli, $detajet, $type, $targetFile, $admin_id, $id))) {
                 $stmt = null;
                 header("location: dboard_manage_news.php?error=stmtfailed");
                 exit();
@@ -175,13 +177,13 @@ class DBUtils extends dbConnect
 
         $stmt = null;
     }
-    public function addHoteli($emri, $adresa, $pershkrimi, $cmimi, $rating)
+    public function addHoteli($emri, $adresa, $pershkrimi, $cmimi,$admin_id, $rating)
     {
 
-        $query = "INSERT INTO hoteli(emri, adresa, pershkrimi, cmimi_per_nate, rating) VALUES (?,?,?,?,?);";
+        $query = "INSERT INTO hoteli(emri, adresa, pershkrimi, cmimi_per_nate, rating, perdoruesi_id) VALUES (?,?,?,?,?,?);";
         $stmt = $this->connectDB()->prepare($query);
 
-        if (!$stmt->execute(array($emri, $adresa, $pershkrimi, $cmimi, $rating))) {
+        if (!$stmt->execute(array($emri, $adresa, $pershkrimi, $cmimi, $rating, $admin_id))) {
             $stmt = null;
             header("location: dboard_hotelet_add.php?error=stmtfailed");
             exit();
@@ -194,7 +196,9 @@ class DBUtils extends dbConnect
 
     public function getHotelet()
     {
-        $query = "SELECT * FROM hoteli";
+        $query = "SELECT hoteli.*, perdoruesi.emri as p_emri, perdoruesi.mbiemri as p_mbiemri
+          FROM hoteli
+          JOIN perdoruesi ON hoteli.perdoruesi_id = perdoruesi.perdoruesi_id";
 
         $stmt = $this->connectDB()->prepare($query);
 
@@ -226,21 +230,21 @@ class DBUtils extends dbConnect
         return $result;
     }
 
-    public function updateHotel($emri, $adresa, $pershkrimi, $cmimi, $rating, $id)
+    public function updateHotel($emri, $adresa, $pershkrimi, $cmimi, $rating, $admin_id, $id)
     {
-        $query = "UPDATE hoteli SET emri=?, adresa=?, pershkrimi=?, cmimi_per_nate=?, rating=? WHERE hoteli_id =?;";
+        $query = "UPDATE hoteli SET emri=?, adresa=?, pershkrimi=?, cmimi_per_nate=?, rating=?, perdoruesi_id=? WHERE hoteli_id =?;";
 
         $stmt = $this->connectDB()->prepare($query);
 
-        
-        if (!$stmt->execute(array($emri, $adresa, $pershkrimi, $cmimi, $rating, $id))) {
+
+        if (!$stmt->execute(array($emri, $adresa, $pershkrimi, $cmimi, $rating, $admin_id, $id))) {
             $stmt = null;
             header("location: dboard_hotelet_add.php?error=stmtfailed");
             exit();
         }
         $rowsAffected = $stmt->rowCount();
         $stmt = null;
-    
+
         if ($rowsAffected === 0) {
             header("location: dboard_hotelet_add.php?error=hotelnotfound");
             exit();
@@ -261,7 +265,9 @@ class DBUtils extends dbConnect
             header("location: dboard_hotelet_add.php?error=stmtfailed");
             exit();
         }
-        header("location: dboard_hotelet_add.php?deleteSuccessful=true");   
+        header("location: dboard_hotelet_add.php?deleteSuccessful=true");
         $stmt = null;
     }
+
+
 }

@@ -12,12 +12,13 @@ if ($_SESSION["is_admin"] == 1) {
         $title = $_POST["title"];
         $details = $_POST["details"];
         $news_type = $_POST["news_type"];
+        $admin_id = $_SESSION["userid"];
 
         if (isset($_POST["id"])) {
             $id = $_POST["id"];
-            $db_utils->updateArtikullin($id, $title, $details, $news_type);
+            $db_utils->updateArtikullin($id, $title, $details, $news_type, $admin_id);
         } else {
-            $db_utils->addArtikullin($title, $details, $news_type);
+            $db_utils->addArtikullin($title, $details, $news_type, $admin_id);
         }
     } else {
         if (isset($_GET["id"])) {

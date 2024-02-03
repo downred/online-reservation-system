@@ -18,6 +18,7 @@ if ($_SESSION["is_admin"] == 1) {
         $cmimi = $_POST["cmimi"];
         $rating = $_POST["rating"];
         $image = $_FILES["image"];
+        $admin_id = $_SESSION["userid"];
 
         if (isset($_GET["id"])) {
             $id = $_GET["id"];
@@ -54,10 +55,10 @@ if ($_SESSION["is_admin"] == 1) {
 
 
             $IMGProcessor->saveIMG($emri);
-            $db_utils->updateHotel($emri, $adresa, $pershkrimi, $cmimi, $rating, $id);
+            $db_utils->updateHotel($emri, $adresa, $pershkrimi, $cmimi, $rating, $admin_id, $id);
         } else {
             $IMGProcessor->saveIMG($emri);
-            $db_utils->addHoteli($emri, $adresa, $pershkrimi, $cmimi, $rating);
+            $db_utils->addHoteli($emri, $adresa, $pershkrimi, $cmimi, $admin_id, $rating);
         }
     } else {
         if (isset($_GET["id"])) {

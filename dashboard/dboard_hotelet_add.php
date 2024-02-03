@@ -14,7 +14,7 @@ if ($_SESSION["is_admin"] == 1) {
 
 ?>
 <html lang="en">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -29,7 +29,7 @@ if ($_SESSION["is_admin"] == 1) {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/24184bbc2f.js" crossorigin="anonymous"></script>
 
-    
+
 </head>
 
 <body>
@@ -60,34 +60,40 @@ if ($_SESSION["is_admin"] == 1) {
                                             <?php echo htmlspecialchars($Hotel["rating"]) ?>★
                                         </p>
                                     </div>
-                                <div class="reserve">
-                                <h4>
-                                    <?php echo htmlspecialchars($Hotel["cmimi_per_nate"]) ?>/Night
-                                </h4>
-                                <button class="rezervo-btn" onclick="DisplayForm()">Rezervo</button>  
+                                    <div class="reserve">
+                                        <h4>
+                                            <?php echo htmlspecialchars($Hotel["cmimi_per_nate"]) ?>/Night
+                                        </h4>
+                                        <button class="rezervo-btn" onclick="DisplayForm()">Rezervo</button>
+                                    </div>
+                                    <div class="desc">
+                                        <p>
+                                            <?php echo htmlspecialchars($Hotel["pershkrimi"]) ?>
+                                        </p>
+                                    </div>
+                                    <p>Shtuar/modifikuar nga
+                                        <?php echo $Hotel["p_emri"] . " " . $Hotel["p_mbiemri"] ?>
+                                    </p>
+                                </div>
+                                <div class="icon-container"
+                                    style="flex-shrink: 2; padding-top: 25px; padding-left:7px; flex-direction:column;">
+                                    <a style="padding-top: 25px;"
+                                        href="dboard_manage_hotel.php?id=<?php echo $Hotel['hoteli_id']; ?>">
+                                        <i class="far fa-edit fa-2x"></i>
+                                    </a>
+                                    <a style="padding-top: 25px;"
+                                        href="dboard_delete_hotel.php?id=<?php echo $Hotel['hoteli_id']; ?>">
+                                        <i class="fas fa-trash-alt fa-2x"></i>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="desc">
-                                <p>
-                                    <?php echo htmlspecialchars($Hotel["pershkrimi"]) ?>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="icon-container" style="flex-shrink: 2; padding-top: 25px; padding-left:7px; flex-direction:column;">
-                            <a style="padding-top: 25px;" href="dboard_manage_hotel.php?id=<?php echo $Hotel['hoteli_id']; ?>">
-                                <i class="far fa-edit fa-2x"></i>
-                            </a>
-                            <a style="padding-top: 25px;" href="dboard_delete_hotel.php?id=<?php echo $Hotel['hoteli_id']; ?>">
-                                <i class="fas fa-trash-alt fa-2x"></i>
-                            </a>
                         </div>
                     </div>
-                </div>
-            </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
-    <a href="dboard_manage_hotel.php">
-    <i class="fas fa-plus fa-2x"></i></a>
-    </section>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <a href="dboard_manage_hotel.php">
+                <i class="fas fa-plus fa-2x"></i></a>
+        </section>
     </div>
 </body>
 

@@ -37,6 +37,7 @@ if ($_SESSION["is_admin"] == 1) {
                             <th>Titulli</th>
                             <th>Detajet</th>
                             <th>Lloji i lajmit</th>
+                            <th>Shtuar/Modifikuar nga</th>
                             <th>Redakto</th>
                             <th>Fshij</th>
                         </tr>
@@ -52,6 +53,9 @@ if ($_SESSION["is_admin"] == 1) {
                                 </td>
                                 <td>
                                     <?php echo $row['lloji_i_lajmit']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['emri'] . " " . $row['mbiemri']; ?>
                                 </td>
                                 <td>
                                     <div class="icon-container">
