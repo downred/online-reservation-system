@@ -1,35 +1,27 @@
 <?php
 include "./dbconnect.php";
-include "hotelet_db_utils.php";
+include "./hotelet_db_utils.php";
+include "./rezervo_form.php";
 
 
 $rez_utils = new HoteliDbUtils();
 $result = $rez_utils->getHotelet();
 
+$rezervo_form = new rezervo_form();
+
+
 if(isset($_POST["ID"])){
     $h_id = $_POST["ID"];
+    $rezervo_form -> rezervo_popUp($h_id);
+    
+    var_dump($rezervo_form);
+    var_dump($_POST['ID']);
 }
 
-if (isset($_POST["submit"])) : ?>
-    <div class="form-popup" id="popup">
-        <h1>Enter the dates of your reservation</h1>
-        <form action="" method="post">
-            <div class="form-container">
-                <div class="date-holder">
-                    <?php echo $_POST["ID"];?>
-                    <p>Nga: <input type="date" id="StartDate" name="StartDate"></p>
-                    <p>Deri: <input type="date" id="EndDate" name="EndDate"></p>
-                </div>
-                <p style="visibility: hidden;" id="error-msg"></p>
-                <div class="button-holder">
-                    <button class="cancel" >Anulo</button>
-                    <button class="rezervo-btn" type="submit" name="submit">Rezervo</button>
-                </div>
-            </div>
-        </form>
-    </div>
 
-    <?php endif; ?>
+
+
+?>
 
 
 
@@ -99,7 +91,7 @@ if (isset($_POST["submit"])) : ?>
                                 <h4>
                                     <?php echo htmlspecialchars($Hotel["cmimi_per_nate"]) ?>/Night
                                 </h4>
-                                <form action="" method="post">
+                                <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
                                     <input type="hidden" value = <?php echo htmlspecialchars($Hotel["hoteli_id"]) ?> name="ID">
                                     <button class="rezervo-btn" onclick="DisplayForm()" type="submit" name="submit">Rezervo</button>
                                 </form>
