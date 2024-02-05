@@ -268,7 +268,7 @@ class DBUtils extends dbConnect
             }
         }
 
-        header("location: dboard_hotelet_add.php.php");
+        header("location: dboard_hotelet_add.php");
 
         $stmt = null;
     }

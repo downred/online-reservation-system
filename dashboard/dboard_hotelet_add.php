@@ -44,7 +44,7 @@ if ($_SESSION["is_admin"] == 1) {
                         <div class="card-animation">
                             <div class="hotel-card">
                                 <div class="hotel-img">
-                                <img width="200px" src="<?php echo "." . $result[0]["photo_path"]; ?>" alt="Current Image">
+                                <img width="200px" src="<?php echo "." . $Hotel["photo_path"]; ?>" alt="Current Image">
                                 </div>
                                 <div class="main-info">
                                     <div class="rating-addres">

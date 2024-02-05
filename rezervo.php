@@ -75,7 +75,7 @@ if(isset($_POST["submit"])){
                 <div class="card-animation">
                     <div class="hotel-card">
                         <div class="hotel-img">
-                            <img src="<?php echo "" . $result[0]["photo_path"]; ?>" alt="Current Image">
+                            <img src="<?php echo "" . $Hotel["photo_path"]; ?>" alt="Current Image">
                         </div>
                         <div class="main-info">
                             <div class="rating-addres">

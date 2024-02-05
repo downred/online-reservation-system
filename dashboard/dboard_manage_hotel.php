@@ -14,7 +14,6 @@ if ($_SESSION["is_admin"] == 1) {
         $pershkrimi = $_POST["pershkrimi"];
         $cmimi = $_POST["cmimi"];
         $rating = $_POST["rating"];
-        $image = $_FILES["image"];
         $admin_id = $_SESSION["userid"];
 
         if (isset($_POST["id"])) {
@@ -97,9 +96,14 @@ if ($_SESSION["is_admin"] == 1) {
                     </div>
                 </div>
             <?php endif; ?>
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"
+                enctype="multipart/form-data">
                 <div class="form-container" style="padding: 1rem; width: 80%; margin: 0 auto">
                     <div class="form-row">
+                        <?php if (isset($_GET["id"])): ?>
+                            <input type="hidden" name="id"
+                                value="<?php echo isset($result[0]["hoteli_id"]) ? $result[0]["hoteli_id"] : ''; ?>">
+                        <?php endif; ?>
                         <input placeholder="Emri" class="input"
                             value="<?php echo isset($result[0]["emri"]) ? $result[0]["emri"] : ''; ?>" type="text"
                             id="emri" name="emri" class="contact-input">
@@ -136,8 +140,8 @@ if ($_SESSION["is_admin"] == 1) {
                         <?php endif; ?>
                     </div>
 
-                    <div class="form-row"><button class="btn-light w-100" type="submit" name="submit">Shto
-                            hotelin</button></div>
+                    <div class="form-row"><button class="btn-light w-100" type="submit" name="submit">Submit</button>
+                    </div>
                 </div>
             </form>
     </div>
