@@ -1,72 +1,56 @@
 /* Holet cards*/
-.hotel-card-container{
-    padding: 0px 15%;
+.hotel-card-container {
+    margin: 1rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-}
-.card-animation{
-    /* width: 100%; */
-    padding: 10px;
-    animation: linear reveal both;
-    animation-timeline: view();
-    animation-range: entry 0.5% cover 15%;
+    height: 170px;
+    width: 1000px;
 }
 
-/* .card-head{
-    padding-top: 3px;
-    display: flex;
-    justify-content: space-between;
-} */
-
-.hotel-card{
-    min-height: 170px;
-    /* overflow: hidden; */
+.hotel-card {
     border-radius: 10px;
+    height: 100%;
+    align-items: center;
+    gap: 10px;
+    width: 70%;
+    margin: 1rem 0;
     outline: #464646 solid 1px;
     display: flex;
-    /* align-items: center; */
-    padding-right: 1%;
-}
-.hotel-img{
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
-    display: block;
     overflow: hidden;
-}
-.img{
-    width: 200px;
-    height: 100%;
-    max-width: 100%; 
-    max-height: 100%;
-    overflow: hidden; 
-    /* padding-right: 1%; */
-}
-.hotel-img img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    display: block;
-}
-
-.main-info{
-    /* padding-top: 7px; */
-    /* height: 100%; */
-    padding-left: 1%;
-    display: flex;
-    align-items: flex-end;
-    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: space-between;
 }
 
-.rating-addres{
+.hotels {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.hotel-img {
+    width: 50%;
+    overflow: hidden;
+    flex: 1;
+}
+
+.hotel-img img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+        display: block
+}
+
+*/ .rating-addres {
     flex: 0 auto;
 }
 
 
-.reserve{
+.reserve {
     display: flex;
     flex: 0 auto;
     flex-direction: column;
@@ -78,79 +62,80 @@
     gap: 3px;
 }
 
-.desc{
-    width: 100%;
+.main-info {
     display: flex;
-    flex-direction: row;
-    margin-bottom: 7px;
-    justify-content: space-between;
-    flex-grow: 1;
-    padding-right: 7px;
-    align-self: flex-end;
-
+    flex-direction: column;
+    justify-content: center;
+    flex: 2;
 }
 
-.rezervo-btn:hover{
+.rezervo-btn:hover {
     cursor: pointer;
     background-color: #ffdbc0;
 }
 
 /* POP UP FORM */
-.form-popup-backdrop{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    z-index: 1;
-    background-color: rgba(0,0,0,0.4);
-}
-.form-popup-wrapper{
+.form-popup-backdrop {
     position: fixed;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.form-popup-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 2;
-    display:none;
+    display: none;
     justify-content: center;
     align-items: center;
 }
-.form-popup{
+
+.form-popup {
     opacity: 1;
-position:relative;
-background-color: white;
-z-index: 2;
+    position: relative;
+    background-color: white;
+    z-index: 2;
     outline: gray 1px solid;
     padding: 10px;
     border-radius: 7px;
 }
-.popup-show{
+
+.popup-show {
     visibility: visible;
     display: flex;
 }
 
-.form-container{
+.form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.form-popup h1{
+
+.form-popup h1 {
     margin-bottom: 3px;
 }
-.date-holder{
+
+.date-holder {
     display: flex;
     flex-direction: column;
     gap: 5px;
     margin-bottom: 7px;
 }
-.button-holder{
+
+.button-holder {
     display: flex;
     flex-direction: row;
     gap: 5px;
 }
 
-.button-holder>*{
+.button-holder>* {
     padding: .5rem;
     background-color: var(--color-light);
     width: min-content;
@@ -163,28 +148,18 @@ z-index: 2;
     cursor: pointer;
     font-size: 14px;
 }
-.cancel{
+
+.cancel {
     background-color: #ff7070 !important;
 }
-.date-error{
+
+.date-error {
     visibility: visible !important;
     color: rgb(250, 39, 39);
 }
-.success-msg{
-    visibility: visible !important;
-}
 
-@keyframes reveal{
-    from{
-        opacity: 0%;
-        width: 0%;
-        height: 100%;
-    }
-    to{
-        opacity: 1;
-        width: 100%;
-        height: 100%;
-    }
+.success-msg {
+    visibility: visible !important;
 }
 
 footer {
@@ -221,32 +196,27 @@ footer {
 
 @media screen and (max-width: 1200px) {
 
-.hotel-card{
-    flex-direction: column;
-    /* row-gap: 300%; */
-}
+    .hotel-card {
+        flex-direction: column;
+        padding-right: 0;
+    }
 
-/* .hotel-img img{
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-} */
+    .hotel-img {
+        width: 100%;
+    }
 
-.hotel-card{
-    padding-right: 0;
-}
-.hotel-card-container{
-    padding: 0px 5%;
-}
+    .hotel-card-container {
+        padding: 0px 5%;
+    }
 
-.reserve{
-    order: 3;
-    flex-flow: row-reverse;
-    /* align-content: center; */
-}
-.reserve > h4{
-    align-self: center;
-    padding-left: 7px;
-}
+    .reserve {
+        order: 3;
+        flex-flow: row-reverse;
+    }
+
+    .reserve>h4 {
+        align-self: center;
+        padding-left: 7px;
+    }
 
 }

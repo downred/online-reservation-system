@@ -48,11 +48,11 @@ if (isset($_POST["submit"])) {
                         <img src="./images/logo/logo.png" alt="">
                     </div>
                     <h1>Na kontaktoni</h1>
-                    <input placeholder="Emri" type="text" id="name" name="name" class="contact-input">
+                    <input placeholder="Emri" type="text" id="name" name="name" class="input">
 
-                    <input placeholder="Mbiemri" type="text" id="lastname" name="lastname" class="contact-input">
+                    <input placeholder="Mbiemri" type="text" id="lastname" name="lastname" class="input">
 
-                    <input placeholder="Email" type="email" id="email" name="email" class="contact-input">
+                    <input placeholder="Email" type="email" id="email" name="email" class="input">
 
                     <textarea placeholder="Mesazhi juaj" id="message" name="message"
                         class="contact-textarea"></textarea>

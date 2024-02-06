@@ -88,3 +88,13 @@ textarea {
     width: 100%;
 
 }
+
+@media screen and (max-width: 900px) {
+    .contact-image-container {
+        display: none;
+    }
+
+    .wrapper {
+        justify-content: center;
+    }
+}

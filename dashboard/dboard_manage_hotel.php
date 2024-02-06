@@ -61,37 +61,35 @@ if ($_SESSION["is_admin"] == 1) {
         </div>
         <section class="content-container" style="width:auto">
             <?php if (isset($_GET["id"])): ?>
-                <div class="hotel-card-container">
-                    <div class="card-animation">
-                        <div class="hotel-card">
-                            <div class="hotel-img">
-                                <img width="200px" src="<?php echo "." . $result[0]["photo_path"]; ?>" alt="Current Image">
-                            </div>
-                            <div class="main-info">
-                                <div class="rating-addres">
-                                    <h3>
-                                        <?php echo htmlspecialchars($result[0]["emri"]) ?>
-                                    </h3>
-                                    <p>
-                                        <?php echo htmlspecialchars($result[0]["adresa"]) ?>
-                                    </p>
-                                    <p>
-                                        <?php echo htmlspecialchars($result[0]["rating"]) ?>★
-                                    </p>
-                                </div>
-                                <div class="reserve">
-                                    <h4>
-                                        <?php echo htmlspecialchars($result[0]["cmimi_per_nate"]) ?>/Night
-                                    </h4>
-                                    <button class="rezervo-btn" onclick="DisplayForm()">Rezervo</button>
+                <div class="hotel-card">
+                    <div class="hotel-img">
+                        <img width="200px" src="<?php echo "." . $result[0]["photo_path"]; ?>" alt="Current Image">
+                    </div>
+                    <div class="main-info">
+                        <div class="rating-addres">
+                            <h3>
+                                <?php echo htmlspecialchars($result[0]["emri"]) ?>
+                            </h3>
+                            <p>
+                                <?php echo htmlspecialchars($result[0]["adresa"]) ?>
+                            </p>
+                            <p>
+                                <?php echo htmlspecialchars($result[0]["rating"]) ?>★
+                            </p>
+                        </div>
 
-                                </div>
-                                <div class="desc">
-                                    <p>
-                                        <?php echo htmlspecialchars($result[0]["pershkrimi"]) ?>
-                                    </p>
-                                </div>
-                            </div>
+                        <div class="desc">
+                            <p>
+                                <?php echo htmlspecialchars($result[0]["pershkrimi"]) ?>
+                            </p>
+                        </div>
+
+                        <div class="reserve">
+                            <h4>
+                                <?php echo htmlspecialchars($result[0]["cmimi_per_nate"]) ?>/Night
+                            </h4>
+                            <button class="rezervo-btn" onclick="DisplayForm()">Rezervo</button>
+
                         </div>
                     </div>
                 </div>
