@@ -2,6 +2,7 @@
 include "./dbconnect.php";
 include "./hotelet_db_utils.php";
 include "./dashboard/db_utils.php";
+include "./rezervo_util.php";
 error_reporting(E_ALL & ~E_NOTICE);
 
 session_start();
@@ -13,12 +14,16 @@ $result = $rez_utils->getHotelet();
 $db_utils = new DBUtils();
 $user_ID = $_SESSION['userid'];
 
-if (isset($_POST["submit"])) {
-    $id = $_POST["ID"];
-    $StartDate = $_POST["StartDate"];
-    $EndDate = $_POST["EndDate"];
 
-    $db_utils->rezervo($user_ID, $id, $StartDate, $EndDate);
+if ((isset($_POST["StartDate"]) && isset($_POST["StartDate"])) && isset($_POST["submit"])){
+    if (isset($_POST["submit"])) {
+        $id = $_POST["ID"];
+        $StartDate = $_POST["StartDate"];
+        $EndDate = $_POST["EndDate"];
+        $rezervo_utils = new rezervo_utils($user_ID, $id, $StartDate, $EndDate);
+
+        $rezervo_utils->initRezervimi();
+    }
 }
 ?>
 
@@ -57,7 +62,13 @@ if (isset($_POST["submit"])) {
                         <p>Deri: <input type="date" id="EndDate" name="EndDate"></p>
                         <input type="hidden" id="hotelId" name="ID" />
                     </div>
-                    <p style="visibility: hidden;" id="error-msg"></p>
+                    <span class="err-msg">
+                        <?php
+                        if (isset($_SESSION["error_msg"])) {
+                            echo $_SESSION["error_msg"];
+                        }
+                        ?>
+                    </span>
                     <div class="button-holder">
                         <div class="cancel" onclick="CloseForm()">Anulo</div>
                         <button class="rezervo-btn" type="submit" name="submit">Rezervo</button>

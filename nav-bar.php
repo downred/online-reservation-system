@@ -40,7 +40,7 @@
                 </li>
             </div>
             <li class="nav-section-two">
-                <a class="btn-light m-2" href="login.php"><?php echo $_SESSION["username"] ?></a>
+                <a class="btn-light m-2" href="login.php"> <?php echo (isset($_SESSION["username"])) ? $_SESSION["username"] : "Kyqu" ?></a>
                 <?php
                 if (isset($_SESSION["userid"])) {
                     echo '<a class="btn-light m-2" href="logout.php">Çkyçu</a>';
@@ -86,7 +86,7 @@
                 </div>
 
                 <div>
-                    <a class="btn-light" href="login.php">Kyçu</a>
+                    <a class="btn-light" href="login.php"><?php echo (isset($_SESSION["username"])) ? $_SESSION["username"] : "Kyqu" ?></a>
                     <?php
                     if (isset($_SESSION["userid"])) {
                         echo '<a class="btn-light" href="logout.php">Çkyçu</a>';
